@@ -74,14 +74,14 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
 
       {!isAdmin && mounted && (
         <Dialog open={open} onOpenChange={handleOpenChange}>
-          <DialogContent className="!max-w-[920px] max-h-[95vh] overflow-hidden border-0 p-0 sm:rounded-[28px]">
-            <div className="grid max-h-[95vh] overflow-y-auto sm:grid-cols-2 sm:overflow-hidden">
-              <div className="relative hidden min-h-[520px] sm:block">
+          <DialogContent className="!max-w-[920px] !max-h-[calc(100dvh-2rem)] overflow-hidden border-0 p-0 sm:rounded-[28px]">
+            <div className="grid min-h-0 max-h-[calc(100dvh-2rem)] sm:grid-cols-2">
+              <div className="relative hidden min-h-0 sm:block sm:h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-2rem)]">
                 <Image
                   src={image}
                   alt="Trường Mầm Non Hoa Anh Đào"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="460px"
                   priority
                 />
@@ -96,7 +96,7 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
                 </div>
               </div>
 
-              <div className="relative flex max-h-[95vh] flex-col bg-warm p-6 sm:max-h-[580px] sm:overflow-y-auto sm:p-8">
+              <div className="relative flex min-h-0 max-h-[calc(100dvh-2rem)] flex-col overflow-y-auto bg-warm p-6 sm:p-8">
                 <button
                   type="button"
                   onClick={handleClose}
