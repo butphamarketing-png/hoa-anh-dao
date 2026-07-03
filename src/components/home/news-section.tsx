@@ -29,12 +29,12 @@ export function NewsSection({ posts }: NewsSectionProps) {
         </FadeUp>
 
         {posts.length > 0 && (
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-5 lg:gap-5">
           {posts.slice(0, 3).map((post, index) => (
             <FadeUp key={post.id} delay={index * 0.1}>
               <Link href={`/tin-tuc/${post.slug}`} className="group block h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-[28px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                <article className="flex h-full flex-col overflow-hidden rounded-[16px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card sm:rounded-[28px]">
+                  <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10]">
                     <Image
                       src={post.image}
                       alt={post.title}
@@ -43,17 +43,17 @@ export function NewsSection({ posts }: NewsSectionProps) {
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <time className="font-body text-body-sm text-foreground/50">
+                  <div className="flex flex-1 flex-col p-2.5 sm:p-6">
+                    <time className="hidden font-body text-body-sm text-foreground/50 sm:block">
                       {formatDate(post.published_at)}
                     </time>
-                    <h3 className="mt-2 font-heading text-lg font-extrabold leading-snug text-foreground line-clamp-2 group-hover:text-primary-green md:text-xl">
+                    <h3 className="mt-0 font-heading text-[11px] font-extrabold leading-snug text-foreground line-clamp-3 group-hover:text-primary-green sm:mt-2 sm:text-lg md:text-xl">
                       {post.title}
                     </h3>
-                    <p className="mt-3 flex-1 font-body text-body-sm leading-relaxed text-foreground/70 line-clamp-3">
+                    <p className="mt-2 hidden flex-1 font-body text-body-sm leading-relaxed text-foreground/70 line-clamp-3 sm:block">
                       {post.excerpt}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-1 font-heading text-body-sm font-bold text-primary-green">
+                    <span className="mt-2 hidden items-center gap-1 font-heading text-body-sm font-bold text-primary-green sm:mt-4 sm:inline-flex">
                       {t.common.viewMore}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>

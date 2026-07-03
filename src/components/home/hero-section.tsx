@@ -23,13 +23,13 @@ export function HeroSection({ settings }: HeroSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex h-[clamp(380px,52vw,720px)] min-h-[380px] w-full items-center justify-center overflow-hidden">
       <Image
         src={settings.hero_image}
         alt="Trường Mầm Non Hoa Anh Đào"
         fill
         priority
-        className="object-cover"
+        className="object-cover object-center"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/65" />
@@ -58,7 +58,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
         size={140}
       />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 pt-24 text-center lg:pt-32">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 pt-16 text-center sm:pt-20 lg:pt-24">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-xl font-body text-body-md text-white/85 md:text-body-lg"
+          className="mx-auto mt-4 max-w-xl font-body text-body-md text-white/85 sm:mt-6 md:text-body-lg"
         >
           {t.home.hero.description}
         </motion.p>
@@ -85,9 +85,9 @@ export function HeroSection({ settings }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4"
         >
-          <Button asChild size="lg" variant="secondary" className="rounded-full px-8">
+          <Button asChild size="lg" variant="secondary" className="rounded-full px-6 sm:px-8">
             <Link href="/tuyen-sinh" className="gap-2">
               <Calendar className="h-4 w-4" />
               {t.common.registerNow}
@@ -96,7 +96,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
           <Button
             asChild
             size="lg"
-            className="gap-2 rounded-full border border-white/30 bg-white/10 px-8 text-white backdrop-blur-md hover:bg-white/20 hover:text-white"
+            className="gap-2 rounded-full border border-white/30 bg-white/10 px-6 text-white backdrop-blur-md hover:bg-white/20 hover:text-white sm:px-8"
           >
             <Link href="/chuong-trinh-hoc">
               {t.common.learnProgram}
@@ -110,7 +110,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1"
+        className="absolute bottom-4 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 sm:bottom-8"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}

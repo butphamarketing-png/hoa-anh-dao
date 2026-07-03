@@ -24,9 +24,10 @@ import { SITE_CONFIG } from "@/lib/constants";
 
 interface VisitScheduleFormProps {
   onSuccess?: () => void;
+  compact?: boolean;
 }
 
-export function VisitScheduleForm({ onSuccess }: VisitScheduleFormProps) {
+export function VisitScheduleForm({ onSuccess, compact = false }: VisitScheduleFormProps) {
   const { t, lang } = useLanguage();
   const ageGroups = lang === "en" ? AGE_GROUPS_EN : AGE_GROUPS;
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(
@@ -64,46 +65,70 @@ export function VisitScheduleForm({ onSuccess }: VisitScheduleFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="flex flex-wrap gap-4 rounded-[20px] bg-white/80 px-4 py-3 font-body text-body-sm text-foreground/70">
-        <span className="inline-flex items-center gap-1.5">
-          <Phone className="h-4 w-4 text-primary-green" />
+    <form onSubmit={handleSubmit(onSubmit)} className={compact ? "space-y-2.5" : "space-y-4"}>
+      <div
+        className={`flex flex-wrap gap-2 rounded-[16px] bg-white/80 font-body text-foreground/70 sm:gap-4 ${
+          compact ? "px-2.5 py-2 text-[10px] sm:px-4 sm:py-3 sm:text-body-sm" : "gap-4 px-4 py-3 text-body-sm"
+        }`}
+      >
+        <span className="inline-flex items-center gap-1 sm:gap-1.5">
+          <Phone className={`text-primary-green ${compact ? "h-3 w-3 sm:h-4 sm:w-4" : "h-4 w-4"}`} />
           {SITE_CONFIG.phone}
         </span>
-        <span className="inline-flex items-center gap-1.5">
-          <MapPin className="h-4 w-4 text-primary-green" />
+        <span className="inline-flex items-center gap-1 sm:gap-1.5">
+          <MapPin className={`text-primary-green ${compact ? "h-3 w-3 sm:h-4 sm:w-4" : "h-4 w-4"}`} />
           {SITE_CONFIG.address.district}, {SITE_CONFIG.address.city}
         </span>
       </div>
 
       <div>
-        <Label htmlFor="visit_full_name">{t.popup.parentName} *</Label>
-        <Input id="visit_full_name" {...register("full_name")} className="mt-1.5 rounded-full" />
+        <Label htmlFor="visit_full_name" className={compact ? "text-[11px] sm:text-sm" : undefined}>
+          {t.popup.parentName} *
+        </Label>
+        <Input
+          id="visit_full_name"
+          {...register("full_name")}
+          className={compact ? "mt-1 h-8 rounded-full text-xs sm:mt-1.5 sm:h-10 sm:text-sm" : "mt-1.5 rounded-full"}
+        />
         {errors.full_name && (
           <p className="mt-1 font-body text-xs text-primary-pink">{errors.full_name.message}</p>
         )}
       </div>
 
       <div>
-        <Label htmlFor="visit_phone">{t.popup.phone} *</Label>
-        <Input id="visit_phone" type="tel" {...register("phone")} className="mt-1.5 rounded-full" />
+        <Label htmlFor="visit_phone" className={compact ? "text-[11px] sm:text-sm" : undefined}>
+          {t.popup.phone} *
+        </Label>
+        <Input
+          id="visit_phone"
+          type="tel"
+          {...register("phone")}
+          className={compact ? "mt-1 h-8 rounded-full text-xs sm:mt-1.5 sm:h-10 sm:text-sm" : "mt-1.5 rounded-full"}
+        />
         {errors.phone && (
           <p className="mt-1 font-body text-xs text-primary-pink">{errors.phone.message}</p>
         )}
       </div>
 
       <div>
-        <Label htmlFor="visit_email">{t.popup.email}</Label>
-        <Input id="visit_email" type="email" {...register("email")} className="mt-1.5 rounded-full" />
+        <Label htmlFor="visit_email" className={compact ? "text-[11px] sm:text-sm" : undefined}>
+          {t.popup.email}
+        </Label>
+        <Input
+          id="visit_email"
+          type="email"
+          {...register("email")}
+          className={compact ? "mt-1 h-8 rounded-full text-xs sm:mt-1.5 sm:h-10 sm:text-sm" : "mt-1.5 rounded-full"}
+        />
         {errors.email && (
           <p className="mt-1 font-body text-xs text-primary-pink">{errors.email.message}</p>
         )}
       </div>
 
       <div>
-        <Label>{t.popup.childAge} *</Label>
+        <Label className={compact ? "text-[11px] sm:text-sm" : undefined}>{t.popup.childAge} *</Label>
         <Select onValueChange={(value) => setValue("child_age", value)}>
-          <SelectTrigger className="mt-1.5 rounded-full">
+          <SelectTrigger className={compact ? "mt-1 h-8 rounded-full text-xs sm:mt-1.5 sm:h-10 sm:text-sm" : "mt-1.5 rounded-full"}>
             <SelectValue placeholder={t.popup.selectAge} />
           </SelectTrigger>
           <SelectContent>
@@ -120,12 +145,14 @@ export function VisitScheduleForm({ onSuccess }: VisitScheduleFormProps) {
       </div>
 
       <div>
-        <Label htmlFor="visit_message">{t.popup.note}</Label>
+        <Label htmlFor="visit_message" className={compact ? "text-[11px] sm:text-sm" : undefined}>
+          {t.popup.note}
+        </Label>
         <Textarea
           id="visit_message"
           {...register("message")}
-          className="mt-1.5 rounded-[20px]"
-          rows={2}
+          className={compact ? "mt-1 rounded-[14px] text-xs sm:mt-1.5 sm:rounded-[20px] sm:text-sm" : "mt-1.5 rounded-[20px]"}
+          rows={compact ? 1 : 2}
           placeholder={t.popup.notePlaceholder}
         />
       </div>
@@ -142,7 +169,11 @@ export function VisitScheduleForm({ onSuccess }: VisitScheduleFormProps) {
         </p>
       )}
 
-      <Button type="submit" className="w-full rounded-full" disabled={isSubmitting}>
+      <Button
+        type="submit"
+        className={compact ? "h-9 w-full rounded-full text-xs sm:h-10 sm:text-sm" : "w-full rounded-full"}
+        disabled={isSubmitting}
+      >
         {isSubmitting ? t.common.submitting : t.common.submit}
       </Button>
     </form>

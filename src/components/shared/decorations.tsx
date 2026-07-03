@@ -238,25 +238,49 @@ export function ScallopedDivider({
 
 /* ─── Single falling petal SVG ─── */
 
-function PetalSvg({ style }: { style?: React.CSSProperties }) {
+function PetalSvg({
+  style,
+  fill = "#D61F8C",
+  opacity = 0.55,
+}: {
+  style?: React.CSSProperties;
+  fill?: string;
+  opacity?: number;
+}) {
   return (
-    <svg viewBox="0 0 12 14" style={style} aria-hidden="true">
-      <ellipse cx="6" cy="7" rx="4" ry="6" fill="#D61F8C" opacity="0.35" transform="rotate(-15 6 7)" />
+    <svg
+      viewBox="0 0 16 18"
+      style={{ ...style, animationDuration: style?.animationDuration ?? "3s" }}
+      aria-hidden="true"
+      className="petal-sway"
+    >
+      <path
+        d="M8 1.5c1.2 2.8 3.8 3.4 3.8 6.2s-2.6 3.4-3.8 6.2C6.8 11.1 4.2 10.5 4.2 7.7S6.8 4.3 8 1.5z"
+        fill={fill}
+        opacity={opacity}
+      />
+      <path
+        d="M8 4.5c0.4 1.2 1.4 1.5 1.4 2.6s-1 1.4-1.4 2.6C7.6 8.5 6.6 8.2 6.6 7.1S7.6 5.7 8 4.5z"
+        fill="#FFFFFF"
+        opacity={opacity * 0.35}
+      />
     </svg>
   );
 }
 
-/* ─── Falling petals animation ─── */
-
 const PETAL_CONFIG = [
-  { left: "8%", delay: "0s", duration: "14s", size: 10 },
-  { left: "18%", delay: "2s", duration: "18s", size: 8 },
-  { left: "32%", delay: "4s", duration: "16s", size: 12 },
-  { left: "48%", delay: "1s", duration: "20s", size: 9 },
-  { left: "62%", delay: "6s", duration: "15s", size: 11 },
-  { left: "75%", delay: "3s", duration: "17s", size: 8 },
-  { left: "88%", delay: "5s", duration: "19s", size: 10 },
-  { left: "95%", delay: "7s", duration: "16s", size: 7 },
+  { left: "4%", delay: "0s", duration: "13s", size: 14, drift: "-24px", fill: "#D61F8C", opacity: 0.7, sway: "3.2s" },
+  { left: "12%", delay: "1.5s", duration: "16s", size: 10, drift: "18px", fill: "#F4A6C8", opacity: 0.55, sway: "2.8s" },
+  { left: "22%", delay: "3s", duration: "18s", size: 12, drift: "-16px", fill: "#D61F8C", opacity: 0.6, sway: "3.5s" },
+  { left: "31%", delay: "0.8s", duration: "15s", size: 9, drift: "22px", fill: "#FFB7D5", opacity: 0.5, sway: "2.5s" },
+  { left: "40%", delay: "4.5s", duration: "17s", size: 13, drift: "-20px", fill: "#D61F8C", opacity: 0.65, sway: "3s" },
+  { left: "50%", delay: "2s", duration: "19s", size: 11, drift: "14px", fill: "#F4A6C8", opacity: 0.55, sway: "2.7s" },
+  { left: "58%", delay: "5s", duration: "14s", size: 15, drift: "-28px", fill: "#D61F8C", opacity: 0.72, sway: "3.4s" },
+  { left: "67%", delay: "1s", duration: "16s", size: 10, drift: "20px", fill: "#FFFFFF", opacity: 0.45, sway: "2.9s" },
+  { left: "76%", delay: "3.8s", duration: "18s", size: 12, drift: "-18px", fill: "#FFB7D5", opacity: 0.58, sway: "3.1s" },
+  { left: "84%", delay: "6s", duration: "15s", size: 9, drift: "26px", fill: "#D61F8C", opacity: 0.62, sway: "2.6s" },
+  { left: "91%", delay: "2.5s", duration: "17s", size: 11, drift: "-14px", fill: "#F4A6C8", opacity: 0.5, sway: "3.3s" },
+  { left: "96%", delay: "4s", duration: "20s", size: 8, drift: "12px", fill: "#D61F8C", opacity: 0.48, sway: "2.4s" },
 ];
 
 export function FallingPetals({ className }: { className?: string }) {
@@ -273,9 +297,19 @@ export function FallingPetals({ className }: { className?: string }) {
             left: p.left,
             animationDelay: p.delay,
             animationDuration: p.duration,
+            ["--petal-drift" as string]: p.drift,
+            ["--petal-opacity" as string]: String(p.opacity),
           }}
         >
-          <PetalSvg style={{ width: p.size, height: p.size }} />
+          <PetalSvg
+            style={{
+              width: p.size,
+              height: p.size * 1.15,
+              animationDuration: p.sway,
+            }}
+            fill={p.fill}
+            opacity={p.opacity}
+          />
         </div>
       ))}
     </div>

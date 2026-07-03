@@ -45,7 +45,7 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
           </div>
         </FadeUp>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:gap-6">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-5 lg:gap-6">
           {items.map((feature, index) => {
             const copy = t.home.features.items[feature.id] ?? {
               title: feature.title,
@@ -55,8 +55,8 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
 
             return (
               <FadeUp key={feature.id} delay={index * 0.1}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                <article className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card sm:rounded-[28px]">
+                  <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10]">
                     <Image
                       src={imageSrc}
                       alt={copy.title}
@@ -66,16 +66,16 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-heading text-xl font-extrabold text-foreground">
+                  <div className="flex flex-1 flex-col p-3 sm:p-6">
+                    <h3 className="font-heading text-sm font-extrabold text-foreground sm:text-xl">
                       {copy.title}
                     </h3>
-                    <p className="mt-3 flex-1 font-body text-body-sm leading-relaxed text-foreground/70 md:text-body-md">
+                    <p className="mt-1.5 flex-1 font-body text-[11px] leading-relaxed text-foreground/70 line-clamp-3 sm:mt-3 sm:text-body-sm md:text-body-md">
                       {copy.description}
                     </p>
                     <Link
                       href={featureLinks[index] ?? "/gioi-thieu"}
-                      className="mt-5 inline-flex items-center gap-1 font-heading text-body-sm font-bold text-primary-green transition-colors hover:text-primary-pink"
+                      className="mt-2 inline-flex items-center gap-1 font-heading text-[11px] font-bold text-primary-green transition-colors hover:text-primary-pink sm:mt-5 sm:text-body-sm"
                     >
                       {t.common.viewMore}
                       <ArrowRight className="h-4 w-4" />

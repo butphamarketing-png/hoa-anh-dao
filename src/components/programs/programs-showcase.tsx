@@ -103,8 +103,8 @@ export function ProgramsShowcase({
       )}
 
       {!carousel && (
-        <div className="mx-auto mt-8 max-w-4xl space-y-10">
-          <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-3 sm:gap-10">
+        <div className="mx-auto mt-6 max-w-4xl space-y-6 sm:mt-8 sm:space-y-10">
+          <div className="grid grid-cols-3 gap-2 sm:gap-8 lg:gap-10">
             {programs.slice(0, 3).map((program, index) => (
               <FadeUp key={program.id} delay={index * 0.06}>
                 <ProgramFlowerCard
@@ -117,7 +117,7 @@ export function ProgramsShowcase({
           </div>
 
           {programs.length > 3 && (
-            <div className="flex flex-wrap justify-center gap-8 sm:gap-10">
+            <div className="mx-auto grid max-w-md grid-cols-2 justify-items-center gap-2 sm:max-w-none sm:flex sm:flex-wrap sm:justify-center sm:gap-10">
               {programs.slice(3).map((program, index) => (
                 <FadeUp key={program.id} delay={(index + 3) * 0.06}>
                   <ProgramFlowerCard

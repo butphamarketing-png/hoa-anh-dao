@@ -23,11 +23,11 @@ export function TeachersSection({ teachers }: TeachersSectionProps) {
           <SectionHeading title={t.home.teachers.title} subtitle={t.home.teachers.subtitle} />
         </FadeUp>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4 lg:gap-6">
           {teachers.map((teacher, index) => (
             <FadeUp key={teacher.id} delay={index * 0.1}>
               <Link href={`/giao-vien/${teacher.slug}`} className="group block text-center">
-                <div className="relative mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-[28px] shadow-soft ring-2 ring-transparent transition-all group-hover:ring-warm-alt">
+                <div className="relative mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-[20px] shadow-soft ring-2 ring-transparent transition-all group-hover:ring-warm-alt sm:rounded-[28px]">
                   <Image
                     src={teacher.avatar}
                     alt={teacher.name}
@@ -36,11 +36,11 @@ export function TeachersSection({ teachers }: TeachersSectionProps) {
                     sizes="280px"
                   />
                 </div>
-                <h3 className="mt-5 font-heading text-lg font-bold text-foreground">
+                <h3 className="mt-3 font-heading text-sm font-bold text-foreground sm:mt-5 sm:text-lg">
                   {teacher.name}
                 </h3>
-                <p className="mt-1 font-body text-sm text-primary-pink">{teacher.position}</p>
-                <p className="mt-2 font-body text-sm text-foreground/60 line-clamp-2">
+                <p className="mt-0.5 font-body text-xs text-primary-pink sm:mt-1 sm:text-sm">{teacher.position}</p>
+                <p className="mt-1 hidden font-body text-sm text-foreground/60 line-clamp-2 sm:block sm:mt-2">
                   {teacher.bio}
                 </p>
               </Link>
