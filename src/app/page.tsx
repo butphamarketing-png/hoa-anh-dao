@@ -43,7 +43,7 @@ export default async function HomePage() {
       <TeachersSection teachers={teachers} />
       <NewsSection posts={news} />
       <TestimonialsSection testimonials={testimonials} />
-      <CtaSection />
+      <CtaSection image={settings.hero_image} />
     </>
   );
 }
