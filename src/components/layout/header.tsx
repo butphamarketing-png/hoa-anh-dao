@@ -82,9 +82,6 @@ export function Header() {
             {MAIN_NAV.map((item) => (
               <Link key={item.href} href={item.href} className={linkClass(item.href)}>
                 {item.label}
-                {isActive(pathname, item.href) && (
-                  <span className="mt-0.5 block h-0.5 w-full rounded-full bg-primary-pink lg:hidden" />
-                )}
               </Link>
             ))}
 
