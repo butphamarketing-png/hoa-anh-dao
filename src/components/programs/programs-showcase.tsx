@@ -119,7 +119,7 @@ export function ProgramsShowcase({
           <div className="hidden space-y-10 sm:block">
             <div className="grid grid-cols-3 justify-items-center gap-8 lg:gap-10">
               {programs.slice(0, 3).map((program, index) => (
-                <FadeUp key={program.id} delay={index * 0.06}>
+                <FadeUp key={program.id} delay={index * 0.06} className="flex justify-center">
                   <ProgramFlowerCard
                     href={`/chuong-trinh-hoc/${program.slug}`}
                     image={program.image}
@@ -130,9 +130,9 @@ export function ProgramsShowcase({
             </div>
 
             {programs.length > 3 && (
-              <div className="flex flex-wrap justify-center gap-10">
+              <div className="flex flex-wrap items-start justify-center gap-10">
                 {programs.slice(3).map((program, index) => (
-                  <FadeUp key={program.id} delay={(index + 3) * 0.06}>
+                  <FadeUp key={program.id} delay={(index + 3) * 0.06} className="flex justify-center">
                     <ProgramFlowerCard
                       href={`/chuong-trinh-hoc/${program.slug}`}
                       image={program.image}

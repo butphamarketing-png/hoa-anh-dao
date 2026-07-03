@@ -11,13 +11,15 @@ interface ProgramFlowerCardProps {
 }
 
 const sizeClasses = {
-  default: "w-full max-w-[180px] sm:max-w-[200px] lg:max-w-[220px]",
-  large: "w-full max-w-[240px] sm:max-w-[220px] lg:max-w-[260px] xl:max-w-[280px]",
+  default:
+    "h-[180px] w-[180px] shrink-0 sm:h-[200px] sm:w-[200px] lg:h-[220px] lg:w-[220px]",
+  large:
+    "h-[240px] w-[240px] shrink-0 sm:h-[240px] sm:w-[240px] lg:h-[260px] lg:w-[260px]",
 };
 
 const labelClasses = {
-  default: "w-full text-xs sm:text-base lg:text-xl",
-  large: "w-full max-w-[280px] text-lg sm:max-w-none sm:text-lg lg:text-xl xl:text-[1.35rem]",
+  default: "max-w-[200px] text-xs sm:max-w-[220px] sm:text-base lg:text-xl",
+  large: "max-w-[260px] text-lg sm:text-lg lg:max-w-[280px] lg:text-xl",
 };
 
 const PETAL_COUNT = 10;
@@ -53,7 +55,10 @@ export function ProgramFlowerCard({
   size = "large",
 }: ProgramFlowerCardProps) {
   return (
-    <Link href={href} className={cn("group flex flex-col items-center text-center", className)}>
+    <Link
+      href={href}
+      className={cn("group flex shrink-0 flex-col items-center text-center", className)}
+    >
       <div className={cn("relative mb-5 aspect-square", sizeClasses[size])}>
         <SpinningFlowerFrame />
 
