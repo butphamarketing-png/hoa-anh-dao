@@ -23,6 +23,8 @@ export const SITE_CONFIG = {
   },
 } as const;
 
+export const VISIT_FORM_IMAGE = "/visit-form.jpg";
+
 export const AGE_GROUPS = [
   "12-24 tháng",
   "2-3 tuổi",

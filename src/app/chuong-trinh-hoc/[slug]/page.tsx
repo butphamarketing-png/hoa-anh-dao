@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/shared/breadcrumb";
 import { GalleryGrid } from "@/components/shared/gallery-grid";
 import { CtaSection } from "@/components/home/cta-section";
-import { getProgramBySlug, getPrograms, getSiteSettings } from "@/lib/data";
+import { VISIT_FORM_IMAGE } from "@/lib/constants";
+import { getProgramBySlug, getPrograms } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
 
 interface Props {
@@ -30,10 +31,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ProgramDetailPage({ params }: Props) {
   const { slug } = await params;
-  const [program, settings] = await Promise.all([
-    getProgramBySlug(slug),
-    getSiteSettings(),
-  ]);
+  const program = await getProgramBySlug(slug);
 
   if (!program) notFound();
 
@@ -100,7 +98,7 @@ export default async function ProgramDetailPage({ params }: Props) {
         </section>
       )}
 
-      <CtaSection image={settings.hero_image} />
+      <CtaSection image={VISIT_FORM_IMAGE} />
     </>
   );
 }

@@ -4,7 +4,8 @@ import { Section } from "@/components/shared/section";
 import { WavyDivider } from "@/components/shared/wavy-divider";
 import { ProgramsShowcase } from "@/components/programs/programs-showcase";
 import { CtaSection } from "@/components/home/cta-section";
-import { getPrograms, getSiteSettings } from "@/lib/data";
+import { VISIT_FORM_IMAGE } from "@/lib/constants";
+import { getPrograms } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata = generatePageMetadata({
@@ -14,7 +15,7 @@ export const metadata = generatePageMetadata({
 });
 
 export default async function ProgramsPage() {
-  const [programs, settings] = await Promise.all([getPrograms(), getSiteSettings()]);
+  const programs = await getPrograms();
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Chương trình học", url: "/chuong-trinh-hoc" },
@@ -40,7 +41,7 @@ export default async function ProgramsPage() {
         <WavyDivider fill="#FFF9E5" flip className="absolute bottom-0 left-0 w-full" />
       </Section>
 
-      <CtaSection image={settings.hero_image} />
+      <CtaSection image={VISIT_FORM_IMAGE} />
     </>
   );
 }

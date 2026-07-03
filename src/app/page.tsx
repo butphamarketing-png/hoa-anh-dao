@@ -8,6 +8,7 @@ import { TeachersSection } from "@/components/home/teachers-section";
 import { NewsSection } from "@/components/home/news-section";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { CtaSection } from "@/components/home/cta-section";
+import { VISIT_FORM_IMAGE } from "@/lib/constants";
 import {
   getSiteSettings,
   getCounters,
@@ -43,7 +44,7 @@ export default async function HomePage() {
       <TeachersSection teachers={teachers} />
       <NewsSection posts={news} />
       <TestimonialsSection testimonials={testimonials} />
-      <CtaSection image={settings.hero_image} />
+      <CtaSection image={VISIT_FORM_IMAGE} />
     </>
   );
 }
