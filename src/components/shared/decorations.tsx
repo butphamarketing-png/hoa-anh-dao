@@ -207,32 +207,30 @@ export function HandDrawnStroke({
 
 export function ScallopedDivider({
   fill = "#FFF9E5",
-  flip = false,
+  edge = "top",
   className = "",
 }: {
   fill?: string;
+  edge?: "top" | "bottom";
+  /** @deprecated use edge="bottom" instead */
   flip?: boolean;
   className?: string;
 }) {
+  const topPath =
+    "M0,32 L0,16 Q30,0 60,16 Q90,32 120,16 Q150,0 180,16 Q210,32 240,16 Q270,0 300,16 Q330,32 360,16 Q390,0 420,16 Q450,32 480,16 Q510,0 540,16 Q570,32 600,16 Q630,0 660,16 Q690,32 720,16 Q750,0 780,16 Q810,32 840,16 Q870,0 900,16 Q930,32 960,16 Q990,0 1020,16 Q1050,32 1080,16 Q1110,0 1140,16 Q1170,32 1200,16 Q1230,0 1260,16 Q1290,32 1320,16 Q1350,0 1380,16 Q1410,32 1440,16 L1440,32 Z";
+
+  const bottomPath =
+    "M0,0 L1440,0 L1440,16 Q1410,32 1380,16 Q1350,0 1320,16 Q1290,32 1260,16 Q1230,0 1200,16 Q1170,32 1140,16 Q1110,0 1080,16 Q1050,32 1020,16 Q990,0 960,16 Q930,32 900,16 Q870,0 840,16 Q810,32 780,16 Q750,0 720,16 Q690,32 660,16 Q630,0 600,16 Q570,32 540,16 Q510,0 480,16 Q450,32 420,16 Q390,0 360,16 Q330,32 300,16 Q270,0 240,16 Q210,32 180,16 Q150,0 120,16 Q90,32 60,16 Q30,0 0,16 Z";
+
   return (
-    <div
-      className={cn(
-        "pointer-events-none w-full leading-[0]",
-        flip && "rotate-180",
-        className
-      )}
-      aria-hidden="true"
-    >
+    <div className={cn("pointer-events-none w-full leading-[0]", className)} aria-hidden="true">
       <svg
         viewBox="0 0 1440 32"
         preserveAspectRatio="none"
         className="block h-6 w-full md:h-8"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M0,32 L0,16 Q30,0 60,16 Q90,32 120,16 Q150,0 180,16 Q210,32 240,16 Q270,0 300,16 Q330,32 360,16 Q390,0 420,16 Q450,32 480,16 Q510,0 540,16 Q570,32 600,16 Q630,0 660,16 Q690,32 720,16 Q750,0 780,16 Q810,32 840,16 Q870,0 900,16 Q930,32 960,16 Q990,0 1020,16 Q1050,32 1080,16 Q1110,0 1140,16 Q1170,32 1200,16 Q1230,0 1260,16 Q1290,32 1320,16 Q1350,0 1380,16 Q1410,32 1440,16 L1440,32 Z"
-          fill={fill}
-        />
+        <path d={edge === "bottom" ? bottomPath : topPath} fill={fill} />
       </svg>
     </div>
   );

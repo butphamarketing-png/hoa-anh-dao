@@ -16,7 +16,7 @@ export function ProgramsSection({ programs }: ProgramsSectionProps) {
       <Container>
         <ProgramsShowcase programs={programs} showViewAll />
       </Container>
-      <ScallopedDivider fill="#FFFFFF" flip className="absolute bottom-0 left-0 w-full" />
+      <ScallopedDivider fill="#FFFFFF" edge="bottom" className="absolute bottom-0 left-0 w-full" />
     </Section>
   );
 }

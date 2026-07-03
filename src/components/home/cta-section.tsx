@@ -97,7 +97,7 @@ export function CtaSection({ image }: CtaSectionProps) {
         </Container>
       </div>
 
-      <ScallopedDivider fill="#00A651" flip className="-mb-px" />
+      <ScallopedDivider fill="#00A651" edge="bottom" className="-mb-px" />
     </div>
   );
 }
