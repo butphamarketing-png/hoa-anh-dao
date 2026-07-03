@@ -226,13 +226,13 @@ export const defaultTeachers: Teacher[] = [
 
 export const defaultGalleryImages: GalleryImage[] = [
   { id: "1", title: "Phòng học hiện đại", image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80", category: "Phòng học", album_id: "1", order_index: 1 },
-  { id: "2", title: "Sân chơi ngoài trời", image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80", category: "Sân chơi", album_id: "1", order_index: 2 },
+  { id: "2", title: "Sân chơi ngoài trời", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80", category: "Sân chơi", album_id: "1", order_index: 2 },
   { id: "3", title: "Thư viện trẻ em", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80", category: "Thư viện", album_id: "2", order_index: 3 },
   { id: "4", title: "Góc nghệ thuật", image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80", category: "Hoạt động", album_id: "2", order_index: 4 },
   { id: "5", title: "Bếp ăn dinh dưỡng", image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80", category: "Bếp ăn", album_id: "3", order_index: 5 },
   { id: "6", title: "Phòng ngủ trưa", image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80", category: "Phòng ngủ", album_id: "3", order_index: 6 },
-  { id: "7", title: "Hoạt động ngoài trời", image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80", category: "Hoạt động", album_id: "1", order_index: 7 },
-  { id: "8", title: "Đồ chơi giáo dục", image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80", category: "Đồ chơi", album_id: "2", order_index: 8 },
+  { id: "7", title: "Hoạt động ngoài trời", image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=800&q=80", category: "Hoạt động", album_id: "1", order_index: 7 },
+  { id: "8", title: "Đồ chơi giáo dục", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80", category: "Đồ chơi", album_id: "2", order_index: 8 },
 ];
 
 export const defaultAlbums: Album[] = [
