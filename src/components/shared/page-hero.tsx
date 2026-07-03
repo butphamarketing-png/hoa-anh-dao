@@ -10,9 +10,14 @@ interface PageHeroProps {
   image?: string;
 }
 
-export function PageHero({ title, description, breadcrumb, image }: PageHeroProps) {
+export function PageHero({
+  title,
+  description,
+  breadcrumb,
+  image,
+}: PageHeroProps) {
   return (
-    <section className={cn("relative overflow-hidden bg-section", image && "min-h-[280px]")}>
+    <section className={cn("relative overflow-hidden bg-section", image && "min-h-[300px]")}>
       {image && (
         <>
           <Image src={image} alt="" fill className="object-cover" priority sizes="100vw" />
@@ -22,14 +27,14 @@ export function PageHero({ title, description, breadcrumb, image }: PageHeroProp
 
       <Container
         className={cn(
-          "relative py-16 lg:py-20",
+          "relative py-14 lg:py-20",
           image && "text-white"
         )}
       >
         <Breadcrumb items={breadcrumb} light={!!image} />
         <h1
           className={cn(
-            "mt-4 font-heading text-4xl font-bold tracking-tight md:text-5xl",
+            "mt-5 font-heading text-display-sm font-bold tracking-tight md:text-display-md",
             image ? "text-white" : "text-foreground"
           )}
         >
@@ -38,14 +43,14 @@ export function PageHero({ title, description, breadcrumb, image }: PageHeroProp
         {description && (
           <p
             className={cn(
-              "mt-4 max-w-2xl font-body text-base md:text-lg",
-              image ? "text-white/85" : "text-foreground/70"
+              "section-subtitle mt-4 max-w-2xl",
+              image ? "text-white/85" : ""
             )}
           >
             {description}
           </p>
         )}
-        {!image && <div className="mt-6 h-1 w-16 rounded-full bg-primary-pink" />}
+        {!image && <div className="mt-6 h-[3px] w-12 rounded-full bg-primary-pink" />}
       </Container>
     </section>
   );

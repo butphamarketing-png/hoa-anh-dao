@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, Plus } from "lucide-react";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Container } from "@/components/shared/container";
+import { Section } from "@/components/shared/section";
 import type { GalleryImage } from "@/types";
 
 interface FacilitiesSectionProps {
@@ -13,37 +15,67 @@ interface FacilitiesSectionProps {
 
 export function FacilitiesSection({ images }: FacilitiesSectionProps) {
   const [lightboxImage, setLightboxImage] = useState<GalleryImage | null>(null);
+  const display = images.slice(0, 5);
+  const [featured, ...grid] = display;
 
   return (
-    <section className="py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <Section>
+      <Container>
         <FadeUp>
           <SectionHeading
-            title="Cơ sở vật chất"
-            subtitle="Không gian học tập hiện đại, an toàn và thân thiện"
+            label="Cơ sở vật chất"
+            title="Môi trường học tập hiện đại"
+            subtitle="Không gian an toàn, thân thiện và được thiết kế dành riêng cho trẻ nhỏ"
           />
         </FadeUp>
 
-        <div className="mt-16 columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {images.slice(0, 6).map((image, index) => (
-            <FadeUp key={image.id} delay={index * 0.1}>
+        {featured && (
+          <div className="mt-14 grid gap-3 lg:grid-cols-2 lg:gap-4">
+            <FadeUp>
               <button
-                className="mb-4 block w-full overflow-hidden rounded-[20px] shadow-soft transition-transform duration-300 hover:scale-[1.02]"
-                onClick={() => setLightboxImage(image)}
+                type="button"
+                className="group relative block h-full min-h-[280px] w-full overflow-hidden rounded-[20px] shadow-soft lg:min-h-[520px]"
+                onClick={() => setLightboxImage(featured)}
               >
                 <Image
-                  src={image.image}
-                  alt={image.title}
-                  width={600}
-                  height={index % 2 === 0 ? 400 : 500}
-                  className="w-full object-cover"
-                  loading="lazy"
+                  src={featured.image}
+                  alt={featured.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+                <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-4 py-1.5 font-body text-body-sm font-medium text-foreground opacity-0 transition-opacity group-hover:opacity-100">
+                  {featured.title}
+                </span>
               </button>
             </FadeUp>
-          ))}
-        </div>
-      </div>
+
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
+              {grid.map((image, index) => (
+                <FadeUp key={image.id} delay={index * 0.08}>
+                  <button
+                    type="button"
+                    className="group relative aspect-square w-full overflow-hidden rounded-[20px] shadow-soft"
+                    onClick={() => setLightboxImage(image)}
+                  >
+                    <Image
+                      src={image.image}
+                      alt={image.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/25">
+                      <Plus className="h-8 w-8 text-white opacity-0 transition-opacity group-hover:opacity-100" />
+                    </div>
+                  </button>
+                </FadeUp>
+              ))}
+            </div>
+          </div>
+        )}
+      </Container>
 
       {lightboxImage && (
         <div
@@ -51,6 +83,7 @@ export function FacilitiesSection({ images }: FacilitiesSectionProps) {
           onClick={() => setLightboxImage(null)}
         >
           <button
+            type="button"
             className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white"
             onClick={() => setLightboxImage(null)}
             aria-label="Đóng"
@@ -66,6 +99,6 @@ export function FacilitiesSection({ images }: FacilitiesSectionProps) {
           />
         </div>
       )}
-    </section>
+    </Section>
   );
 }

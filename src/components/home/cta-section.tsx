@@ -12,7 +12,7 @@ interface CtaSectionProps {
 
 export function CtaSection({ settings }: CtaSectionProps) {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28">
+    <Section className="relative overflow-hidden !py-20 lg:!py-28">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-green via-primary-green to-accent-blue" />
       <div
         className="absolute inset-0 opacity-10"
@@ -21,13 +21,18 @@ export function CtaSection({ settings }: CtaSectionProps) {
         }}
       />
 
-      <Container className="relative z-10 max-w-4xl text-center">
+      <Container className="relative z-10 max-w-3xl text-center">
         <FadeUp>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-            {settings.cta_title}
+          <h2 className="font-heading text-[1.75rem] font-extrabold leading-[1.3] tracking-tight text-white md:text-[2.25rem] lg:text-[2.5rem]">
+            Đăng ký tư vấn và
+            <br />
+            tham quan trường
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-white/90">
+          <p className="mx-auto mt-5 max-w-xl font-body text-body-md leading-relaxed text-white/90 md:text-body-lg">
             {settings.cta_description}
+          </p>
+          <p className="mt-3 font-body text-body-sm text-white/70">
+            Chúng tôi cam kết bảo mật thông tin cá nhân của quý phụ huynh
           </p>
           <Button asChild size="lg" variant="secondary" className="mt-10 gap-2">
             <Link href="/tuyen-sinh">
@@ -37,6 +42,6 @@ export function CtaSection({ settings }: CtaSectionProps) {
           </Button>
         </FadeUp>
       </Container>
-    </section>
+    </Section>
   );
 }

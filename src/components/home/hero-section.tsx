@@ -29,11 +29,11 @@ export function HeroSection({ settings }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-heading text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl"
+          className="font-heading text-display-sm font-extrabold leading-[1.15] tracking-tight text-white md:text-display-md lg:text-[3.5rem]"
         >
           {settings.hero_title}
           <br />
-          <span className="text-3xl text-primary-pink md:text-5xl lg:text-6xl">
+          <span className="text-2xl text-primary-pink md:text-[2.25rem] lg:text-display-sm">
             {settings.hero_subtitle}
           </span>
         </motion.h1>
@@ -42,7 +42,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-xl font-body text-base text-white/85 md:text-lg"
+          className="mx-auto mt-6 max-w-xl font-body text-body-md text-white/85 md:text-body-lg"
         >
           {settings.hero_description}
         </motion.p>
@@ -56,7 +56,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
           <Button asChild size="lg" variant="secondary">
             <Link href="/tuyen-sinh" className="gap-2">
               <Calendar className="h-4 w-4" />
-              Đăng ký tham quan
+              Đăng ký ngay
             </Link>
           </Button>
           <Button

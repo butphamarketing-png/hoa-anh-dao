@@ -43,11 +43,11 @@ export function AnimatedCounter({ value, suffix = "", label, duration = 2 }: Cou
       transition={{ duration: 0.6 }}
       className="text-center"
     >
-      <div className="font-heading text-4xl font-bold text-primary-green md:text-5xl">
+      <div className="sw-stat-value">
         {count}
         {suffix}
       </div>
-      <p className="mt-2 font-body text-sm text-foreground/70 md:text-base">{label}</p>
+      <p className="sw-stat-label">{label}</p>
     </motion.div>
   );
 }

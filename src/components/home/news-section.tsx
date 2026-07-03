@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Container } from "@/components/shared/container";
+import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import type { NewsPost } from "@/types";
 
@@ -12,17 +15,22 @@ interface NewsSectionProps {
 
 export function NewsSection({ posts }: NewsSectionProps) {
   return (
-    <section className="py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <Section>
+      <Container>
         <FadeUp>
-          <SectionHeading title="Tin tức" subtitle="Cập nhật mới nhất từ Hoa Anh Đào" />
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionHeading
+              title="Tin tức và sự kiện"
+              subtitle="Cập nhật mới nhất từ Hoa Anh Đào"
+            />
+          </div>
         </FadeUp>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, index) => (
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {posts.slice(0, 3).map((post, index) => (
             <FadeUp key={post.id} delay={index * 0.1}>
               <Link href={`/tin-tuc/${post.slug}`} className="group block h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-[20px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+                <article className="flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
                       src={post.image}
@@ -31,20 +39,21 @@ export function NewsSection({ posts }: NewsSectionProps) {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-primary-green px-3 py-1 font-body text-xs font-medium text-white">
-                      {post.category}
-                    </span>
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <time className="font-body text-xs text-foreground/50">
+                    <time className="font-body text-body-sm text-foreground/50">
                       {formatDate(post.published_at)}
                     </time>
-                    <h3 className="mt-2 font-heading text-lg font-bold text-foreground line-clamp-2 group-hover:text-primary-green">
+                    <h3 className="mt-2 font-heading text-lg font-extrabold leading-snug text-foreground line-clamp-2 group-hover:text-primary-green md:text-xl">
                       {post.title}
                     </h3>
-                    <p className="mt-2 font-body text-sm text-foreground/70 line-clamp-2">
+                    <p className="mt-3 flex-1 font-body text-body-sm leading-relaxed text-foreground/70 line-clamp-3">
                       {post.excerpt}
                     </p>
+                    <span className="mt-4 inline-flex items-center gap-1 font-heading text-body-sm font-bold text-primary-green">
+                      Xem thêm
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
                   </div>
                 </article>
               </Link>
@@ -54,10 +63,10 @@ export function NewsSection({ posts }: NewsSectionProps) {
 
         <FadeUp className="mt-12 text-center">
           <Button asChild variant="outline">
-            <Link href="/tin-tuc">Xem tất cả tin tức</Link>
+            <Link href="/tin-tuc">Xem thêm</Link>
           </Button>
         </FadeUp>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

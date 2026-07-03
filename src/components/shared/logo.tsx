@@ -10,16 +10,16 @@ interface LogoProps {
 }
 
 const sizeMap = {
-  sm: 40,
-  md: 48,
-  lg: 56,
+  sm: 44,
+  md: 52,
+  lg: 60,
 };
 
 export function Logo({ size = "md", showText = true, light = false, className }: LogoProps) {
   const px = sizeMap[size];
 
   return (
-    <Link href="/" className={cn("flex shrink-0 items-center gap-3", className)}>
+    <Link href="/" className={cn("notranslate flex shrink-0 items-center gap-3", className)}>
       <Image
         src="/logo.png"
         alt="Trường Mầm Non Hoa Anh Đào"
@@ -33,7 +33,7 @@ export function Logo({ size = "md", showText = true, light = false, className }:
         <div className="hidden sm:block">
           <p
             className={cn(
-              "font-heading text-sm font-bold leading-tight lg:text-base",
+              "font-heading text-sm font-bold uppercase leading-tight tracking-wide lg:text-[0.9375rem]",
               light ? "text-white" : "text-primary-green"
             )}
           >
@@ -41,8 +41,8 @@ export function Logo({ size = "md", showText = true, light = false, className }:
           </p>
           <p
             className={cn(
-              "font-body text-xs",
-              light ? "text-white/70" : "text-foreground/60"
+              "font-body text-xs tracking-wide",
+              light ? "text-white/70" : "text-foreground/55"
             )}
           >
             Mầm Non

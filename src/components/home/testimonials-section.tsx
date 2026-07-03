@@ -20,7 +20,8 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
       <Container>
         <FadeUp>
           <SectionHeading
-            title="Đánh giá phụ huynh"
+            label="Testimonial"
+            title="Cảm nghĩ của phụ huynh về chúng tôi"
             subtitle="Những chia sẻ chân thực từ phụ huynh"
           />
         </FadeUp>
@@ -53,7 +54,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                   </div>
                 </div>
 
-                <p className="mt-5 flex-1 font-body text-sm leading-relaxed text-foreground/75">
+                <p className="mt-5 flex-1 font-body text-body-sm leading-relaxed text-foreground/75 md:text-body-md">
                   &ldquo;{item.content}&rdquo;
                 </p>
               </article>

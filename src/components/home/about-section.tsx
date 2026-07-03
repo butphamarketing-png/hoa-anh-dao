@@ -10,34 +10,32 @@ interface AboutSectionProps {
 
 export function AboutSection({ settings }: AboutSectionProps) {
   return (
-    <Section variant="muted">
+    <Section className="!py-16 lg:!py-24">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <FadeUp>
-            <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] shadow-card">
-                <Image
-                  src={settings.about_image}
-                  alt={settings.about_title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-[20px] bg-primary-green/10" />
-            </div>
-          </FadeUp>
-
-          <FadeUp delay={0.2}>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              {settings.about_title}
+        <FadeUp>
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="section-title">
+              Trường Mầm Non Hoa Anh Đào xin chào!
             </h2>
-            <div className="mt-4 h-1 w-16 rounded-full bg-primary-pink" />
-            <p className="mt-6 font-body text-base leading-relaxed text-foreground/70 md:text-lg">
+            <p className="section-subtitle mx-auto mt-6">
               {settings.about_content}
             </p>
-          </FadeUp>
-        </div>
+          </div>
+        </FadeUp>
+
+        <FadeUp delay={0.15}>
+          <div className="relative mx-auto mt-14 max-w-5xl overflow-hidden rounded-[24px] shadow-card">
+            <div className="relative aspect-[21/9]">
+              <Image
+                src={settings.about_image}
+                alt={settings.about_title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+              />
+            </div>
+          </div>
+        </FadeUp>
       </Container>
     </Section>
   );

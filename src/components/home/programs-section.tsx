@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Container } from "@/components/shared/container";
+import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import type { Program } from "@/types";
 
@@ -12,44 +14,50 @@ interface ProgramsSectionProps {
 
 export function ProgramsSection({ programs }: ProgramsSectionProps) {
   return (
-    <section className="bg-section py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <Section>
+      <Container>
         <FadeUp>
-          <SectionHeading
-            title="Chương trình học"
-            subtitle="Chương trình giáo dục được thiết kế phù hợp với từng độ tuổi"
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionHeading
+              title="Chương trình mầm non"
+              subtitle="Chương trình giáo dục được thiết kế phù hợp với từng độ tuổi, giúp bé phát triển toàn diện trong niềm vui và hạnh phúc"
+            />
+          </div>
         </FadeUp>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="-mx-4 mt-14 flex gap-5 overflow-x-auto px-4 pb-2 scrollbar-hide snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
           {programs.map((program, index) => (
-            <FadeUp key={program.id} delay={index * 0.1}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+            <FadeUp key={program.id} delay={index * 0.08} className="shrink-0 snap-start lg:shrink">
+              <article className="group flex h-full w-[280px] flex-col overflow-hidden rounded-[24px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card lg:w-auto">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={program.image}
                     alt={program.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 1024px) 280px, 33vw"
                   />
-                  <div className="absolute left-4 top-4 rounded-full bg-primary-pink px-4 py-1.5 font-body text-xs font-medium text-white">
-                    {program.age_group}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="font-body text-body-sm font-medium text-white/90">
+                      {program.age_group}
+                    </p>
+                    <h3 className="mt-1 font-heading text-xl font-extrabold text-white">
+                      {program.title}
+                    </h3>
                   </div>
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-heading text-xl font-bold text-foreground">
-                    {program.title}
-                  </h3>
-                  <p className="mt-2 font-body text-sm leading-relaxed text-foreground/70 line-clamp-2">
+                <div className="flex flex-1 flex-col p-5">
+                  <p className="flex-1 font-body text-body-sm leading-relaxed text-foreground/70 line-clamp-3">
                     {program.description}
                   </p>
-                  <Button asChild variant="ghost" className="mt-4 px-0 text-primary-green hover:bg-transparent">
-                    <Link href={`/chuong-trinh-hoc/${program.slug}`}>
-                      Xem chi tiết
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  <Link
+                    href={`/chuong-trinh-hoc/${program.slug}`}
+                    className="mt-4 inline-flex items-center gap-1 font-heading text-body-sm font-bold text-primary-green transition-colors hover:text-primary-pink"
+                  >
+                    Xem thêm
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
               </article>
             </FadeUp>
@@ -61,7 +69,7 @@ export function ProgramsSection({ programs }: ProgramsSectionProps) {
             <Link href="/chuong-trinh-hoc">Xem tất cả chương trình</Link>
           </Button>
         </FadeUp>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

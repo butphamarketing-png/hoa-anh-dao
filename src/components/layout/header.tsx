@@ -45,65 +45,65 @@ export function Header() {
 
   if (pathname?.startsWith("/admin")) return null;
 
-  const linkClass = (href: string) =>
-    cn(
-      "rounded-xl px-3 py-2 font-body text-sm transition-colors",
-      isTransparent
-        ? isActive(pathname, href)
-          ? "text-white"
-          : "text-white/80 hover:text-white"
-        : isActive(pathname, href)
-          ? "font-medium text-primary-green"
-          : "text-foreground/80 hover:bg-section hover:text-primary-green"
+  const navLinkClass = (href: string) => {
+    const active = isActive(pathname, href);
+    return cn(
+      "nav-link notranslate px-3 py-4 outline-none focus-visible:ring-0",
+      active
+        ? isTransparent
+          ? "text-white [box-shadow:inset_0_-2px_0_0_white]"
+          : "nav-link-active"
+        : isTransparent
+          ? "text-white/85 hover:text-white"
+          : "text-foreground/75 hover:text-primary-green"
     );
+  };
+
+  const exploreTriggerClass = cn(
+    "nav-link notranslate flex items-center gap-1 px-3 py-4 outline-none focus-visible:ring-0",
+    isExploreActive(pathname)
+      ? isTransparent
+        ? "text-white [box-shadow:inset_0_-2px_0_0_white]"
+        : "nav-link-active"
+      : isTransparent
+        ? "text-white/85 hover:text-white"
+        : "text-foreground/75 hover:text-primary-green"
+  );
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header className="notranslate fixed left-0 right-0 top-0 z-50 transition-all duration-300">
       <div
         className={cn(
           "transition-colors duration-300",
           isTransparent ? "bg-transparent" : "bg-white shadow-soft"
         )}
       >
-        <div className={cn(isTransparent && "hidden lg:block")}>
-          <TopBar />
-        </div>
+        <TopBar />
 
         <div
           className={cn(
             "mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-8",
-            isScrolled ? "py-2" : "py-3",
-            isTransparent && "border-b border-white/10"
+            isScrolled ? "py-1.5" : "py-2",
+            isTransparent && "border-b border-white/10 lg:border-none"
           )}
         >
           <Logo size={isScrolled ? "sm" : "md"} light={isTransparent} />
 
-          <nav className="hidden items-center gap-0.5 lg:flex">
+          <nav className="hidden items-center lg:flex">
             {MAIN_NAV.map((item) => (
-              <Link key={item.href} href={item.href} className={linkClass(item.href)}>
+              <Link key={item.href} href={item.href} className={navLinkClass(item.href)}>
                 {item.label}
               </Link>
             ))}
 
             <DropdownMenu.Root>
-              <DropdownMenu.Trigger
-                className={cn(
-                  "flex items-center gap-1 rounded-xl px-3 py-2 font-body text-sm outline-none transition-colors",
-                  isTransparent
-                    ? isExploreActive(pathname)
-                      ? "text-white"
-                      : "text-white/80 hover:text-white"
-                    : isExploreActive(pathname)
-                      ? "font-medium text-primary-green"
-                      : "text-foreground/80 hover:bg-section hover:text-primary-green"
-                )}
-              >
+              <DropdownMenu.Trigger className={exploreTriggerClass}>
                 Khám phá
-                <ChevronDown className="h-4 w-4" />
+                <ChevronDown className="h-3.5 w-3.5 opacity-70" />
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal>
                 <DropdownMenu.Content
-                  className="z-50 min-w-[200px] rounded-[20px] border border-border bg-white p-2 shadow-card"
+                  className="z-50 min-w-[220px] rounded-[20px] border border-border bg-white p-2 shadow-card"
                   sideOffset={8}
                 >
                   {EXPLORE_NAV.map((item) => (
@@ -111,7 +111,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "block cursor-pointer rounded-xl px-4 py-2.5 font-body text-sm outline-none transition-colors",
+                          "block cursor-pointer rounded-xl px-4 py-2.5 font-body text-body-sm outline-none transition-colors",
                           isActive(pathname, item.href)
                             ? "bg-section font-medium text-primary-green"
                             : "text-foreground/80 hover:bg-section hover:text-primary-green"
@@ -126,11 +126,11 @@ export function Header() {
             </DropdownMenu.Root>
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-4 lg:flex">
             <a
               href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
               className={cn(
-                "flex items-center gap-2 font-body text-sm font-medium transition-colors",
+                "flex items-center gap-2 font-heading text-body-sm font-semibold transition-colors",
                 isTransparent ? "text-white hover:text-white/80" : "text-primary-green"
               )}
             >
@@ -138,7 +138,7 @@ export function Header() {
               <span className="hidden xl:inline">{SITE_CONFIG.phone}</span>
             </a>
             <Button asChild size="sm" variant={isTransparent ? "secondary" : "default"}>
-              <Link href="/tuyen-sinh">Đăng ký tư vấn</Link>
+              <Link href="/tuyen-sinh">Đăng ký ngay</Link>
             </Button>
           </div>
 
@@ -157,15 +157,15 @@ export function Header() {
 
       {isOpen && (
         <div className="border-t border-border bg-white px-4 py-4 shadow-card lg:hidden">
-          <nav className="flex flex-col gap-1">
+          <nav className="flex flex-col gap-0.5">
             {MAIN_NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-xl px-4 py-3 font-body transition-colors",
+                  "rounded-xl px-4 py-3 font-heading text-body-sm font-semibold uppercase tracking-wide transition-colors",
                   isActive(pathname, item.href)
-                    ? "bg-section font-medium text-primary-green"
+                    ? "bg-section text-primary-green"
                     : "text-foreground/80 hover:bg-section"
                 )}
                 onClick={() => setIsOpen(false)}
@@ -176,7 +176,7 @@ export function Header() {
 
             <button
               onClick={() => setExploreOpen(!exploreOpen)}
-              className="flex items-center justify-between rounded-xl px-4 py-3 font-body text-foreground/80 hover:bg-section"
+              className="flex items-center justify-between rounded-xl px-4 py-3 font-heading text-body-sm font-semibold uppercase tracking-wide text-foreground/80 hover:bg-section"
             >
               Khám phá
               <ChevronDown
@@ -190,7 +190,7 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "rounded-xl px-4 py-2.5 font-body text-sm",
+                      "rounded-xl px-4 py-2.5 font-body text-body-sm",
                       isActive(pathname, item.href)
                         ? "font-medium text-primary-green"
                         : "text-foreground/70"
@@ -207,13 +207,13 @@ export function Header() {
           <div className="mt-4 flex flex-col gap-3 border-t border-border pt-4">
             <a
               href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 px-4 font-body text-primary-green"
+              className="flex items-center gap-2 px-4 font-heading text-body-sm font-semibold text-primary-green"
             >
               <Phone className="h-4 w-4" />
-              {SITE_CONFIG.phone}
+              HOTLINE: {SITE_CONFIG.phone}
             </a>
             <Button asChild className="w-full">
-              <Link href="/tuyen-sinh">Đăng ký tư vấn</Link>
+              <Link href="/tuyen-sinh">Đăng ký ngay</Link>
             </Button>
             <div className="px-4">
               <LanguageSwitcher />
