@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/shared/motion-wrapper";
@@ -29,9 +29,8 @@ export default async function ProgramsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Chương trình học"
-        description="Chương trình giáo dục được thiết kế phù hợp với từng giai đoạn phát triển của trẻ"
+      <LocalizedPageHero
+        page="programs"
         breadcrumb={[{ label: "Chương trình học" }]}
         image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80"
       />
@@ -72,7 +71,7 @@ export default async function ProgramsPage() {
         </Container>
       </Section>
 
-      <CtaSection settings={settings} />
+      <CtaSection />
     </>
   );
 }

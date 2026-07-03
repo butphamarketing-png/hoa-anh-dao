@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/shared/motion-wrapper";
@@ -27,9 +27,8 @@ export default async function GalleryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Thư viện ảnh"
-        description="Những khoảnh khắc đáng nhớ tại Hoa Anh Đào"
+      <LocalizedPageHero
+        page="gallery"
         breadcrumb={[{ label: "Thư viện ảnh" }]}
         image="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1920&q=80"
       />

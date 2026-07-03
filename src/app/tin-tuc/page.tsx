@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/shared/motion-wrapper";
@@ -28,9 +28,8 @@ export default async function NewsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Tin tức"
-        description="Cập nhật mới nhất từ Hoa Anh Đào"
+      <LocalizedPageHero
+        page="news"
         breadcrumb={[{ label: "Tin tức" }]}
         image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80"
       />

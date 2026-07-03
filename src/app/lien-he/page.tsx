@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { ContactForm } from "@/components/forms/contact-form";
@@ -24,9 +24,8 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Liên hệ"
-        description="Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ phụ huynh"
+      <LocalizedPageHero
+        page="contact"
         breadcrumb={[{ label: "Liên hệ" }]}
         image="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&q=80"
       />

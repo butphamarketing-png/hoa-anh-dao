@@ -1,4 +1,4 @@
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/shared/motion-wrapper";
@@ -29,9 +29,8 @@ export default async function FacilitiesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Cơ sở vật chất"
-        description="Không gian học tập được thiết kế hiện đại, an toàn và thân thiện với trẻ nhỏ"
+      <LocalizedPageHero
+        page="facilities"
         breadcrumb={[{ label: "Cơ sở vật chất" }]}
         image="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1920&q=80"
       />

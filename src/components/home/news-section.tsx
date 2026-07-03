@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -6,6 +8,7 @@ import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
 import type { NewsPost } from "@/types";
 
@@ -14,15 +17,14 @@ interface NewsSectionProps {
 }
 
 export function NewsSection({ posts }: NewsSectionProps) {
+  const { t } = useLanguage();
+
   return (
-    <Section>
+    <Section variant="warm" wave>
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
-            <SectionHeading
-              title="Tin tức và sự kiện"
-              subtitle="Cập nhật mới nhất từ Hoa Anh Đào"
-            />
+            <SectionHeading title={t.home.news.title} subtitle={t.home.news.subtitle} />
           </div>
         </FadeUp>
 
@@ -30,7 +32,7 @@ export function NewsSection({ posts }: NewsSectionProps) {
           {posts.slice(0, 3).map((post, index) => (
             <FadeUp key={post.id} delay={index * 0.1}>
               <Link href={`/tin-tuc/${post.slug}`} className="group block h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+                <article className="flex h-full flex-col overflow-hidden rounded-[28px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
                       src={post.image}
@@ -51,7 +53,7 @@ export function NewsSection({ posts }: NewsSectionProps) {
                       {post.excerpt}
                     </p>
                     <span className="mt-4 inline-flex items-center gap-1 font-heading text-body-sm font-bold text-primary-green">
-                      Xem thêm
+                      {t.common.viewMore}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
@@ -62,8 +64,8 @@ export function NewsSection({ posts }: NewsSectionProps) {
         </div>
 
         <FadeUp className="mt-12 text-center">
-          <Button asChild variant="outline">
-            <Link href="/tin-tuc">Xem thêm</Link>
+          <Button asChild variant="outline" className="rounded-full">
+            <Link href="/tin-tuc">{t.common.viewAllNews}</Link>
           </Button>
         </FadeUp>
       </Container>

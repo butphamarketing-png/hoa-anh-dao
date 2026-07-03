@@ -3,13 +3,16 @@
 import Link from "next/link";
 import { Phone, Mail, Facebook } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { useLanguage } from "@/contexts/language-context";
 import { LanguageSwitcher } from "./language-switcher";
 
 export function TopBar() {
+  const { t } = useLanguage();
+
   return (
     <div className="hidden bg-primary-green lg:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 lg:px-8">
-        <div className="notranslate flex items-center gap-5 font-body text-body-sm text-white/90">
+        <div className="flex items-center gap-5 font-body text-body-sm text-white/90">
           <a
             href={SITE_CONFIG.social.facebook}
             target="_blank"
@@ -32,10 +35,10 @@ export function TopBar() {
         <div className="flex items-center gap-4">
           <a
             href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
-            className="notranslate flex items-center gap-2 font-heading text-body-sm font-semibold tracking-wide text-white"
+            className="flex items-center gap-2 font-heading text-body-sm font-semibold tracking-wide text-white"
           >
             <Phone className="h-3.5 w-3.5" />
-            HOTLINE: {SITE_CONFIG.phone}
+            {t.common.hotline}: {SITE_CONFIG.phone}
           </a>
           <LanguageSwitcher className="border-white/20 bg-white/10 [&_button]:text-white/70 [&_button[aria-pressed=true]]:bg-white [&_button[aria-pressed=true]]:text-primary-green" />
         </div>

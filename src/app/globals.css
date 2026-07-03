@@ -66,6 +66,10 @@
   .sw-stat-label {
     @apply mt-2 font-body text-body-sm text-foreground/70 md:text-body-md;
   }
+
+  .playful-card {
+    @apply rounded-[28px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card;
+  }
 }
 
 @layer utilities {
@@ -84,57 +88,4 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-}
-
-/* Google Translate — ẩn banner, tránh làm vỡ layout */
-iframe.goog-te-banner-frame,
-.goog-te-banner-frame,
-.goog-te-banner-frame.skiptranslate,
-.skiptranslate iframe,
-.skiptranslate.goog-te-banner-frame,
-body > .skiptranslate,
-.skiptranslate {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  width: 0 !important;
-  overflow: hidden !important;
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
-}
-
-#goog-gt-tt,
-.goog-te-balloon-frame,
-.goog-te-menu-value,
-.goog-te-gadget,
-#google_translate_element,
-.goog-te-combo {
-  display: none !important;
-}
-
-html.translated-ltr,
-html.translated-rtl,
-body.translated-ltr,
-body.translated-rtl {
-  top: 0 !important;
-  margin-top: 0 !important;
-  position: static !important;
-}
-
-body {
-  top: 0 !important;
-  margin-top: 0 !important;
-}
-
-.goog-text-highlight,
-font[style] {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-header nav a,
-header nav button {
-  box-shadow: none !important;
-  background: transparent !important;
 }

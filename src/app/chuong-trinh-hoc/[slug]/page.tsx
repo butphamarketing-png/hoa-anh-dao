@@ -100,7 +100,7 @@ export default async function ProgramDetailPage({ params }: Props) {
         </section>
       )}
 
-      <CtaSection settings={settings} />
+      <CtaSection />
     </>
   );
 }

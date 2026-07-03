@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, ChevronDown } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
 import type { SiteSettings } from "@/types";
 
@@ -12,6 +13,8 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ settings }: HeroSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <Image
@@ -31,10 +34,10 @@ export function HeroSection({ settings }: HeroSectionProps) {
           transition={{ duration: 0.8 }}
           className="font-heading text-display-sm font-extrabold leading-[1.15] tracking-tight text-white md:text-display-md lg:text-[3.5rem]"
         >
-          {settings.hero_title}
+          {t.home.hero.title}
           <br />
           <span className="text-2xl text-primary-pink md:text-[2.25rem] lg:text-display-sm">
-            {settings.hero_subtitle}
+            {t.home.hero.subtitle}
           </span>
         </motion.h1>
 
@@ -44,7 +47,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mt-6 max-w-xl font-body text-body-md text-white/85 md:text-body-lg"
         >
-          {settings.hero_description}
+          {t.home.hero.description}
         </motion.p>
 
         <motion.div
@@ -53,19 +56,19 @@ export function HeroSection({ settings }: HeroSectionProps) {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Button asChild size="lg" variant="secondary">
+          <Button asChild size="lg" variant="secondary" className="rounded-full px-8">
             <Link href="/tuyen-sinh" className="gap-2">
               <Calendar className="h-4 w-4" />
-              Đăng ký ngay
+              {t.common.registerNow}
             </Link>
           </Button>
           <Button
             asChild
             size="lg"
-            className="gap-2 border border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 hover:text-white"
+            className="gap-2 rounded-full border border-white/30 bg-white/10 px-8 text-white backdrop-blur-md hover:bg-white/20 hover:text-white"
           >
             <Link href="/chuong-trinh-hoc">
-              Tìm hiểu chương trình
+              {t.common.learnProgram}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -83,7 +86,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
           transition={{ repeat: Infinity, duration: 2 }}
           className="flex flex-col items-center"
         >
-          <span className="font-body text-xs text-white/60">Khám phá</span>
+          <span className="font-body text-xs text-white/60">{t.common.discover}</span>
           <ChevronDown className="h-6 w-6 text-white/70" />
         </motion.div>
       </motion.div>

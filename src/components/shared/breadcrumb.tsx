@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 import { cn } from "@/lib/utils";
 
 interface BreadcrumbProps {
@@ -8,6 +11,8 @@ interface BreadcrumbProps {
 }
 
 export function Breadcrumb({ items, light = false }: BreadcrumbProps) {
+  const { t } = useLanguage();
+
   return (
     <nav aria-label="Breadcrumb" className="py-2">
       <ol
@@ -24,7 +29,7 @@ export function Breadcrumb({ items, light = false }: BreadcrumbProps) {
               light ? "hover:text-white" : "hover:text-primary-green"
             )}
           >
-            Trang chủ
+            {t.nav.home}
           </Link>
         </li>
         {items.map((item, index) => (

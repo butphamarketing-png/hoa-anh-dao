@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Nunito, Be_Vietnam_Pro } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MainWrapper } from "@/components/layout/main-wrapper";
+import { VisitPopupWrapper } from "@/components/shared/visit-popup-wrapper";
+import { LanguageProvider, getLangFromCookie } from "@/contexts/language-context";
+import { LANG_COOKIE } from "@/i18n";
 import { generateOrganizationSchema, generatePageMetadata } from "@/lib/seo";
 import "./globals.css";
 
@@ -28,11 +32,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const organizationSchema = generateOrganizationSchema();
+  const cookieStore = await cookies();
+  const initialLang = getLangFromCookie(cookieStore.get(LANG_COOKIE)?.value);
 
   return (
-    <html lang="vi" className={`${nunito.variable} ${beVietnam.variable}`}>
+    <html lang={initialLang === "en" ? "en" : "vi"} className={`${nunito.variable} ${beVietnam.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -40,9 +46,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Header />
-        <MainWrapper>{children}</MainWrapper>
-        <Footer />
+        <LanguageProvider initialLang={initialLang}>
+          <Header />
+          <MainWrapper>{children}</MainWrapper>
+          <Footer />
+          <VisitPopupWrapper />
+        </LanguageProvider>
       </body>
     </html>
   );

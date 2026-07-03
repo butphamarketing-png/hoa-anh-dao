@@ -19,6 +19,8 @@ const config: Config = {
         },
         background: "#FFFFFF",
         section: "#F8FFF8",
+        warm: "#FFF9E5",
+        "warm-alt": "#FFF3D6",
         foreground: "#2D2D2D",
         border: "#E8E8E8",
         success: "#39B54A",

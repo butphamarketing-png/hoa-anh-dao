@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/language-context";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
@@ -17,9 +20,10 @@ const sizeMap = {
 
 export function Logo({ size = "md", showText = true, light = false, className }: LogoProps) {
   const px = sizeMap[size];
+  const { t } = useLanguage();
 
   return (
-    <Link href="/" className={cn("notranslate flex shrink-0 items-center gap-3", className)}>
+    <Link href="/" className={cn("flex shrink-0 items-center gap-3", className)}>
       <Image
         src="/logo.png"
         alt="Trường Mầm Non Hoa Anh Đào"
@@ -33,11 +37,11 @@ export function Logo({ size = "md", showText = true, light = false, className }:
         <div className="hidden sm:block">
           <p
             className={cn(
-              "font-heading text-sm font-bold uppercase leading-tight tracking-wide lg:text-[0.9375rem]",
+              "font-heading text-sm font-extrabold uppercase leading-tight tracking-wide lg:text-[0.9375rem]",
               light ? "text-white" : "text-primary-green"
             )}
           >
-            HOA ANH ĐÀO
+            {t.site.tagline}
           </p>
           <p
             className={cn(
@@ -45,7 +49,7 @@ export function Logo({ size = "md", showText = true, light = false, className }:
               light ? "text-white/70" : "text-foreground/55"
             )}
           >
-            Mầm Non
+            {t.site.preschool}
           </p>
         </div>
       )}

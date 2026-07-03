@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/shared/motion-wrapper";
@@ -27,9 +27,8 @@ export default async function TeachersPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Đội ngũ giáo viên"
-        description="Những người thầy, người cô tận tâm đồng hành cùng bé yêu"
+      <LocalizedPageHero
+        page="teachers"
         breadcrumb={[{ label: "Đội ngũ giáo viên" }]}
         image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80"
       />

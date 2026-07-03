@@ -1,5 +1,5 @@
 import { FadeUp } from "@/components/shared/motion-wrapper";
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { getAboutPage, getTeachers } from "@/lib/data";
@@ -34,9 +34,8 @@ export default async function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Giới thiệu"
-        description="Tìm hiểu hành trình, sứ mệnh và giá trị cốt lõi của Hoa Anh Đào"
+      <LocalizedPageHero
+        page="about"
         breadcrumb={[{ label: "Giới thiệu" }]}
         image="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1920&q=80"
       />

@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Container } from "@/components/shared/container";
+import { Section } from "@/components/shared/section";
+import { useLanguage } from "@/contexts/language-context";
 import type { Teacher } from "@/types";
 
 interface TeachersSectionProps {
@@ -9,24 +14,20 @@ interface TeachersSectionProps {
 }
 
 export function TeachersSection({ teachers }: TeachersSectionProps) {
+  const { t } = useLanguage();
+
   return (
-    <section className="bg-section py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <Section variant="muted">
+      <Container>
         <FadeUp>
-          <SectionHeading
-            title="Đội ngũ giáo viên"
-            subtitle="Những người thầy, người cô tận tâm đồng hành cùng bé"
-          />
+          <SectionHeading title={t.home.teachers.title} subtitle={t.home.teachers.subtitle} />
         </FadeUp>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {teachers.map((teacher, index) => (
             <FadeUp key={teacher.id} delay={index * 0.1}>
-              <Link
-                href={`/giao-vien/${teacher.slug}`}
-                className="group block text-center"
-              >
-                <div className="relative mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-[20px] shadow-soft">
+              <Link href={`/giao-vien/${teacher.slug}`} className="group block text-center">
+                <div className="relative mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-[28px] shadow-soft ring-2 ring-transparent transition-all group-hover:ring-warm-alt">
                   <Image
                     src={teacher.avatar}
                     alt={teacher.name}
@@ -46,7 +47,7 @@ export function TeachersSection({ teachers }: TeachersSectionProps) {
             </FadeUp>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

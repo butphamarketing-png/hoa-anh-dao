@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -5,6 +7,7 @@ import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
 import type { Program } from "@/types";
 
@@ -13,22 +16,21 @@ interface ProgramsSectionProps {
 }
 
 export function ProgramsSection({ programs }: ProgramsSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <Section>
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
-            <SectionHeading
-              title="Chương trình mầm non"
-              subtitle="Chương trình giáo dục được thiết kế phù hợp với từng độ tuổi, giúp bé phát triển toàn diện trong niềm vui và hạnh phúc"
-            />
+            <SectionHeading title={t.home.programs.title} subtitle={t.home.programs.subtitle} />
           </div>
         </FadeUp>
 
         <div className="-mx-4 mt-14 flex gap-5 overflow-x-auto px-4 pb-2 scrollbar-hide snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
           {programs.map((program, index) => (
             <FadeUp key={program.id} delay={index * 0.08} className="shrink-0 snap-start lg:shrink">
-              <article className="group flex h-full w-[280px] flex-col overflow-hidden rounded-[24px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card lg:w-auto">
+              <article className="group flex h-full w-[280px] flex-col overflow-hidden rounded-[28px] bg-white shadow-soft ring-2 ring-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:ring-warm-alt lg:w-auto">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={program.image}
@@ -55,7 +57,7 @@ export function ProgramsSection({ programs }: ProgramsSectionProps) {
                     href={`/chuong-trinh-hoc/${program.slug}`}
                     className="mt-4 inline-flex items-center gap-1 font-heading text-body-sm font-bold text-primary-green transition-colors hover:text-primary-pink"
                   >
-                    Xem thêm
+                    {t.common.viewMore}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -65,8 +67,8 @@ export function ProgramsSection({ programs }: ProgramsSectionProps) {
         </div>
 
         <FadeUp className="mt-12 text-center">
-          <Button asChild variant="outline">
-            <Link href="/chuong-trinh-hoc">Xem tất cả chương trình</Link>
+          <Button asChild variant="outline" className="rounded-full">
+            <Link href="/chuong-trinh-hoc">{t.common.viewAllPrograms}</Link>
           </Button>
         </FadeUp>
       </Container>

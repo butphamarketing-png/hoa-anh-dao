@@ -1,16 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
-import type { SiteSettings } from "@/types";
 
-interface CtaSectionProps {
-  settings: SiteSettings;
-}
+export function CtaSection() {
+  const { t } = useLanguage();
 
-export function CtaSection({ settings }: CtaSectionProps) {
   return (
     <Section className="relative overflow-hidden !py-20 lg:!py-28">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-green via-primary-green to-accent-blue" />
@@ -24,19 +24,17 @@ export function CtaSection({ settings }: CtaSectionProps) {
       <Container className="relative z-10 max-w-3xl text-center">
         <FadeUp>
           <h2 className="font-heading text-[1.75rem] font-extrabold leading-[1.3] tracking-tight text-white md:text-[2.25rem] lg:text-[2.5rem]">
-            Đăng ký tư vấn và
+            {t.home.cta.titleLine1}
             <br />
-            tham quan trường
+            {t.home.cta.titleLine2}
           </h2>
           <p className="mx-auto mt-5 max-w-xl font-body text-body-md leading-relaxed text-white/90 md:text-body-lg">
-            {settings.cta_description}
+            {t.home.cta.description}
           </p>
-          <p className="mt-3 font-body text-body-sm text-white/70">
-            Chúng tôi cam kết bảo mật thông tin cá nhân của quý phụ huynh
-          </p>
-          <Button asChild size="lg" variant="secondary" className="mt-10 gap-2">
+          <p className="mt-3 font-body text-body-sm text-white/70">{t.home.cta.privacy}</p>
+          <Button asChild size="lg" variant="secondary" className="mt-10 gap-2 rounded-full px-10">
             <Link href="/tuyen-sinh">
-              Đăng ký ngay
+              {t.common.registerNow}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

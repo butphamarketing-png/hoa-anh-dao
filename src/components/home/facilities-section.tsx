@@ -7,6 +7,7 @@ import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { useLanguage } from "@/contexts/language-context";
 import type { GalleryImage } from "@/types";
 
 interface FacilitiesSectionProps {
@@ -14,6 +15,7 @@ interface FacilitiesSectionProps {
 }
 
 export function FacilitiesSection({ images }: FacilitiesSectionProps) {
+  const { t } = useLanguage();
   const [lightboxImage, setLightboxImage] = useState<GalleryImage | null>(null);
   const display = images.slice(0, 5);
   const [featured, ...grid] = display;
@@ -23,9 +25,9 @@ export function FacilitiesSection({ images }: FacilitiesSectionProps) {
       <Container>
         <FadeUp>
           <SectionHeading
-            label="Cơ sở vật chất"
-            title="Môi trường học tập hiện đại"
-            subtitle="Không gian an toàn, thân thiện và được thiết kế dành riêng cho trẻ nhỏ"
+            label={t.home.facilities.label}
+            title={t.home.facilities.title}
+            subtitle={t.home.facilities.subtitle}
           />
         </FadeUp>
 

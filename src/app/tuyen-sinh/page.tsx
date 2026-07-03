@@ -1,4 +1,4 @@
-import { PageHero } from "@/components/shared/page-hero";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/shared/motion-wrapper";
@@ -32,9 +32,8 @@ export default async function EnrollmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <PageHero
-        title="Tuyển sinh"
-        description="Đăng ký ngay để con bạn trải nghiệm môi trường học tập tuyệt vời"
+      <LocalizedPageHero
+        page="enrollment"
         breadcrumb={[{ label: "Tuyển sinh" }]}
         image="https://images.unsplash.com/photo-1560421683-6857ea356b30?w=1920&q=80"
       />

@@ -7,6 +7,7 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { SITE_CONFIG } from "@/lib/constants";
 import { MAIN_NAV, EXPLORE_NAV } from "@/lib/navigation";
+import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "./language-switcher";
 import { TopBar } from "./top-bar";
@@ -24,6 +25,7 @@ function isExploreActive(pathname: string) {
 
 export function Header() {
   const pathname = usePathname();
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -48,7 +50,7 @@ export function Header() {
   const navLinkClass = (href: string) => {
     const active = isActive(pathname, href);
     return cn(
-      "nav-link notranslate px-3 py-4 outline-none focus-visible:ring-0",
+      "nav-link px-3 py-4 outline-none focus-visible:ring-0",
       active
         ? isTransparent
           ? "text-white [box-shadow:inset_0_-2px_0_0_white]"
@@ -60,7 +62,7 @@ export function Header() {
   };
 
   const exploreTriggerClass = cn(
-    "nav-link notranslate flex items-center gap-1 px-3 py-4 outline-none focus-visible:ring-0",
+    "nav-link flex items-center gap-1 px-3 py-4 outline-none focus-visible:ring-0",
     isExploreActive(pathname)
       ? isTransparent
         ? "text-white [box-shadow:inset_0_-2px_0_0_white]"
@@ -71,7 +73,7 @@ export function Header() {
   );
 
   return (
-    <header className="notranslate fixed left-0 right-0 top-0 z-50 transition-all duration-300">
+    <header className="fixed left-0 right-0 top-0 z-50 transition-all duration-300">
       <div
         className={cn(
           "transition-colors duration-300",
@@ -92,18 +94,18 @@ export function Header() {
           <nav className="hidden items-center lg:flex">
             {MAIN_NAV.map((item) => (
               <Link key={item.href} href={item.href} className={navLinkClass(item.href)}>
-                {item.label}
+                {t.nav[item.labelKey]}
               </Link>
             ))}
 
             <DropdownMenu.Root>
               <DropdownMenu.Trigger className={exploreTriggerClass}>
-                Khám phá
+                {t.nav.explore}
                 <ChevronDown className="h-3.5 w-3.5 opacity-70" />
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal>
                 <DropdownMenu.Content
-                  className="z-50 min-w-[220px] rounded-[20px] border border-border bg-white p-2 shadow-card"
+                  className="z-50 min-w-[220px] rounded-[24px] border border-border bg-white p-2 shadow-card"
                   sideOffset={8}
                 >
                   {EXPLORE_NAV.map((item) => (
@@ -111,13 +113,13 @@ export function Header() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "block cursor-pointer rounded-xl px-4 py-2.5 font-body text-body-sm outline-none transition-colors",
+                          "block cursor-pointer rounded-2xl px-4 py-2.5 font-body text-body-sm outline-none transition-colors",
                           isActive(pathname, item.href)
-                            ? "bg-section font-medium text-primary-green"
-                            : "text-foreground/80 hover:bg-section hover:text-primary-green"
+                            ? "bg-warm font-medium text-primary-green"
+                            : "text-foreground/80 hover:bg-warm hover:text-primary-green"
                         )}
                       >
-                        {item.label}
+                        {t.nav[item.labelKey]}
                       </Link>
                     </DropdownMenu.Item>
                   ))}
@@ -137,14 +139,19 @@ export function Header() {
               <Phone className="h-4 w-4" />
               <span className="hidden xl:inline">{SITE_CONFIG.phone}</span>
             </a>
-            <Button asChild size="sm" variant={isTransparent ? "secondary" : "default"}>
-              <Link href="/tuyen-sinh">Đăng ký ngay</Link>
+            <Button
+              asChild
+              size="sm"
+              variant={isTransparent ? "secondary" : "default"}
+              className="rounded-full px-6"
+            >
+              <Link href="/tuyen-sinh">{t.common.registerNow}</Link>
             </Button>
           </div>
 
           <button
             className={cn(
-              "rounded-xl p-2 lg:hidden",
+              "rounded-2xl p-2 lg:hidden",
               isTransparent ? "text-white" : "text-foreground"
             )}
             onClick={() => setIsOpen(!isOpen)}
@@ -163,41 +170,41 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-xl px-4 py-3 font-heading text-body-sm font-semibold uppercase tracking-wide transition-colors",
+                  "rounded-2xl px-4 py-3 font-heading text-body-sm font-semibold transition-colors",
                   isActive(pathname, item.href)
-                    ? "bg-section text-primary-green"
-                    : "text-foreground/80 hover:bg-section"
+                    ? "bg-warm text-primary-green"
+                    : "text-foreground/80 hover:bg-warm"
                 )}
                 onClick={() => setIsOpen(false)}
               >
-                {item.label}
+                {t.nav[item.labelKey]}
               </Link>
             ))}
 
             <button
               onClick={() => setExploreOpen(!exploreOpen)}
-              className="flex items-center justify-between rounded-xl px-4 py-3 font-heading text-body-sm font-semibold uppercase tracking-wide text-foreground/80 hover:bg-section"
+              className="flex items-center justify-between rounded-2xl px-4 py-3 font-heading text-body-sm font-semibold text-foreground/80 hover:bg-warm"
             >
-              Khám phá
+              {t.nav.explore}
               <ChevronDown
                 className={cn("h-4 w-4 transition-transform", exploreOpen && "rotate-180")}
               />
             </button>
             {exploreOpen && (
-              <div className="ml-4 flex flex-col gap-1 border-l-2 border-section pl-4">
+              <div className="ml-4 flex flex-col gap-1 border-l-2 border-warm pl-4">
                 {EXPLORE_NAV.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "rounded-xl px-4 py-2.5 font-body text-body-sm",
+                      "rounded-2xl px-4 py-2.5 font-body text-body-sm",
                       isActive(pathname, item.href)
                         ? "font-medium text-primary-green"
                         : "text-foreground/70"
                     )}
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.label}
+                    {t.nav[item.labelKey]}
                   </Link>
                 ))}
               </div>
@@ -210,10 +217,10 @@ export function Header() {
               className="flex items-center gap-2 px-4 font-heading text-body-sm font-semibold text-primary-green"
             >
               <Phone className="h-4 w-4" />
-              HOTLINE: {SITE_CONFIG.phone}
+              {t.common.hotline}: {SITE_CONFIG.phone}
             </a>
-            <Button asChild className="w-full">
-              <Link href="/tuyen-sinh">Đăng ký ngay</Link>
+            <Button asChild className="w-full rounded-full">
+              <Link href="/tuyen-sinh">{t.common.registerNow}</Link>
             </Button>
             <div className="px-4">
               <LanguageSwitcher />

@@ -1,7 +1,7 @@
 "use server";
 
 import { createAdminClient } from "@/lib/supabase/admin";
-import { registrationSchema, contactSchema } from "@/lib/validations";
+import { registrationSchema, contactSchema, visitScheduleSchema } from "@/lib/validations";
 import { revalidatePath } from "next/cache";
 
 export async function submitRegistration(formData: FormData) {
@@ -30,6 +30,47 @@ export async function submitRegistration(formData: FormData) {
   }
 
   return { success: true, message: "Đăng ký thành công! Chúng tôi sẽ liên hệ sớm nhất." };
+}
+
+export async function submitVisitSchedule(formData: FormData) {
+  const raw = {
+    full_name: formData.get("full_name") as string,
+    phone: formData.get("phone") as string,
+    email: (formData.get("email") as string) || "",
+    child_age: formData.get("child_age") as string,
+    message: (formData.get("message") as string) || "",
+  };
+
+  const parsed = visitScheduleSchema.safeParse(raw);
+  if (!parsed.success) {
+    return { success: false, error: "Vui lòng kiểm tra lại thông tin." };
+  }
+
+  const note = parsed.data.message
+    ? `[Đặt lịch tham quan] ${parsed.data.message}`
+    : "[Đặt lịch tham quan]";
+
+  const registration = {
+    full_name: parsed.data.full_name,
+    phone: parsed.data.phone,
+    email: parsed.data.email || "info@hoaanhdao.edu.vn",
+    child_name: "—",
+    child_birthday: "—",
+    child_age: parsed.data.child_age,
+    message: note,
+    status: "pending" as const,
+  };
+
+  const supabase = createAdminClient();
+  if (supabase) {
+    const { error } = await supabase.from("registrations").insert(registration);
+    if (error) return { success: false, error: "Không thể gửi đăng ký. Vui lòng thử lại." };
+  }
+
+  return {
+    success: true,
+    message: "Đặt lịch thành công! Chúng tôi sẽ liên hệ xác nhận sớm nhất.",
+  };
 }
 
 export async function submitContact(formData: FormData) {

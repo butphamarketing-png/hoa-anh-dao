@@ -23,18 +23,6 @@ export const SITE_CONFIG = {
   },
 } as const;
 
-export const NAV_ITEMS = [
-  { label: "Trang chủ", href: "/" },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
-  { label: "Chương trình học", href: "/chuong-trinh-hoc" },
-  { label: "Tuyển sinh", href: "/tuyen-sinh" },
-  { label: "Liên hệ", href: "/lien-he" },
-  { label: "Đội ngũ giáo viên", href: "/giao-vien" },
-  { label: "Cơ sở vật chất", href: "/co-so-vat-chat" },
-  { label: "Thư viện ảnh", href: "/thu-vien" },
-  { label: "Tin tức", href: "/tin-tuc" },
-] as const;
-
 export const AGE_GROUPS = [
   "12-24 tháng",
   "2-3 tuổi",

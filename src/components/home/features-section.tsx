@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   HeartHandshake,
@@ -13,6 +15,8 @@ import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { PlayfulBlob } from "@/components/shared/wavy-divider";
+import { useLanguage } from "@/contexts/language-context";
 import type { Feature } from "@/types";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -43,26 +47,30 @@ interface FeaturesSectionProps {
 }
 
 export function FeaturesSection({ features }: FeaturesSectionProps) {
+  const { t } = useLanguage();
   const items = features.slice(0, 4);
 
   return (
-    <Section variant="muted">
+    <Section variant="warm">
+      <PlayfulBlob className="right-4 top-8 h-20 w-20" color="#D61F8C" />
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
-            <SectionHeading
-              title="Vì sao chọn Hoa Anh Đào?"
-              subtitle="Những giá trị cốt lõi giúp chúng tôi trở thành ngôi nhà thứ hai của bé yêu"
-            />
+            <SectionHeading title={t.home.features.title} subtitle={t.home.features.subtitle} />
           </div>
         </FadeUp>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:gap-6">
           {items.map((feature, index) => {
             const Icon = iconMap[feature.icon] || HeartHandshake;
+            const copy = t.home.features.items[feature.id] ?? {
+              title: feature.title,
+              description: feature.description,
+            };
+
             return (
               <FadeUp key={feature.id} delay={index * 0.1}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+                <article className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
                   <div
                     className={`relative flex h-44 items-center justify-center bg-gradient-to-br ${featureGradients[index % featureGradients.length]}`}
                   >
@@ -70,16 +78,16 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-heading text-xl font-extrabold text-foreground">
-                      {feature.title}
+                      {copy.title}
                     </h3>
                     <p className="mt-3 flex-1 font-body text-body-sm leading-relaxed text-foreground/70 md:text-body-md">
-                      {feature.description}
+                      {copy.description}
                     </p>
                     <Link
                       href={featureLinks[index] ?? "/gioi-thieu"}
                       className="mt-5 inline-flex items-center gap-1 font-heading text-body-sm font-bold text-primary-green transition-colors hover:text-primary-pink"
                     >
-                      Xem thêm
+                      {t.common.viewMore}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
