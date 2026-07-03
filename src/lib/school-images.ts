@@ -2,7 +2,9 @@
 export const SCHOOL_IMAGES = {
   fruitFestival: "/gallery/hoat-dong-tiec-trai-cay.jpg",
   teachersFruitArt: "/gallery/giao-vien-trang-tri-hoa-qua.jpg",
+  safeClassroom: "/gallery/giao-vien-trang-tri-hoa-qua.jpg",
   lifeSkillsBanana: "/gallery/ky-nang-boc-chuoi.jpg",
+  nurseryExplore: "/gallery/tiec-buffet.jpg",
   summerAdventures: "/gallery/summer-adventures.jpg",
   tropicalFruitDay: "/gallery/le-hoi-trai-cay.jpg",
   graduationGroup: "/gallery/le-tot-nghiep.jpg",
@@ -10,7 +12,7 @@ export const SCHOOL_IMAGES = {
   buffetParty: "/gallery/tiec-buffet.jpg",
   graduationPortrait: "/gallery/be-tot-nghiep.jpg",
   yearbookClass: "/gallery/ky-yeu-lop-la.jpg",
-  dailyActivity: "/gallery/hoat-dong-hang-ngay.jpg",
+  dailyActivity: "/gallery/ky-nang-boc-chuoi.jpg",
 } as const;
 
 /** Hero / banner slideshow — keep unchanged when replacing other site images. */

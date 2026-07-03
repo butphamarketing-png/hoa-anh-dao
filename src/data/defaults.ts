@@ -73,7 +73,7 @@ export const defaultFeatures: Feature[] = [
     title: "Lớp học an toàn",
     description: "Không gian được thiết kế an toàn, thân thiện với trẻ nhỏ.",
     icon: "Shield",
-    image: IMG.dailyActivity,
+    image: IMG.safeClassroom,
     order_index: 3,
   },
   {
@@ -111,7 +111,7 @@ export const defaultPrograms: Program[] = [
     description: "Chăm sóc và phát triển vận động, ngôn ngữ cho trẻ nhỏ.",
     content:
       "<p>Chương trình Nhà trẻ tập trung vào chăm sóc toàn diện, phát triển vận động tinh - thô và khả năng giao tiếp ban đầu cho trẻ từ 12-24 tháng.</p>",
-    image: IMG.dailyActivity,
+    image: IMG.nurseryExplore,
     gallery: [],
     order_index: 1,
     is_published: true,
@@ -304,7 +304,7 @@ export const defaultNews: NewsPost[] = [
     slug: "lop-hoc-montessori-moi",
     excerpt: "Không gian học tập theo phương pháp Montessori hiện đại.",
     content: "<p>Phòng học Montessori được trang bị đầy đủ dụng cụ học tập, tạo môi trường lý tưởng cho trẻ tự khám phá.</p>",
-    image: IMG.dailyActivity,
+    image: IMG.safeClassroom,
     category: "Giáo dục",
     published_at: "2025-06-10",
     is_published: true,

@@ -23,7 +23,7 @@ const featureLinks = [
 const fallbackImages: Record<string, string> = {
   "1": IMG.teachersFruitArt,
   "2": IMG.summerAdventures,
-  "3": IMG.dailyActivity,
+  "3": IMG.safeClassroom,
   "4": IMG.fruitFestival,
 };
 
