@@ -77,7 +77,7 @@ export function Header() {
       <div
         className={cn(
           "transition-colors duration-300",
-          isTransparent ? "bg-transparent" : "bg-white shadow-soft"
+          isTransparent ? "bg-transparent" : "bg-paper/95 shadow-soft backdrop-blur-sm"
         )}
       >
         <TopBar />
@@ -163,7 +163,7 @@ export function Header() {
       </div>
 
       {isOpen && (
-        <div className="border-t border-border bg-white px-4 py-4 shadow-card lg:hidden">
+        <div className="border-t border-border bg-paper px-4 py-4 shadow-card lg:hidden">
           <nav className="flex flex-col gap-0.5">
             {MAIN_NAV.map((item) => (
               <Link

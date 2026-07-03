@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { WavyDivider } from "@/components/shared/wavy-divider";
 import { ScallopedDivider, SectionCornerDecor, DotPattern } from "@/components/shared/decorations";
+import { PaperTexture } from "@/components/shared/paper-texture";
 
 interface SectionProps {
   children: React.ReactNode;
@@ -13,15 +14,15 @@ interface SectionProps {
 }
 
 const variantStyles = {
-  default: "bg-white",
+  default: "bg-paper",
   muted: "bg-section",
   warm: "bg-warm",
 };
 
 const waveFill = {
-  default: "#FFFFFF",
-  muted: "#F8FFF8",
-  warm: "#FFF9E5",
+  default: "#FAF5EC",
+  muted: "#F3EDE3",
+  warm: "#FFF6E0",
 };
 
 export function Section({
@@ -34,9 +35,11 @@ export function Section({
   decor = false,
 }: SectionProps) {
   const decorVariant = variant === "warm" ? "warm" : variant === "muted" ? "light" : "light";
+  const paperVariant = variant === "warm" ? "warm" : variant === "muted" ? "muted" : "default";
 
   return (
     <section id={id} className={cn("relative overflow-hidden py-6 lg:py-8", variantStyles[variant], className)}>
+      <PaperTexture variant={paperVariant} />
       {scallop && (
         <ScallopedDivider fill={waveFill[variant]} className="absolute left-0 top-0 w-full" />
       )}
@@ -49,7 +52,7 @@ export function Section({
           <SectionCornerDecor variant={decorVariant} showLeaf={variant === "warm"} />
         </>
       )}
-      {children}
+      <div className="relative z-[1]">{children}</div>
     </section>
   );
 }

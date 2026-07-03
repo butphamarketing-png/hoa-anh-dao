@@ -5,6 +5,7 @@ import { FadeUp } from "@/components/shared/motion-wrapper";
 import { GalleryGrid } from "@/components/shared/gallery-grid";
 import { getGalleryImages, getGalleryCategories } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
+import { IMG } from "@/lib/school-images";
 
 export const metadata = generatePageMetadata({
   title: "Cơ sở vật chất",
@@ -32,7 +33,7 @@ export default async function FacilitiesPage() {
       <LocalizedPageHero
         page="facilities"
         breadcrumb={[{ label: "Cơ sở vật chất" }]}
-        image="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1920&q=80"
+        image={IMG.teachersFruitArt}
       />
 
       <Section>

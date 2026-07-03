@@ -13,6 +13,7 @@ import type {
   Testimonial,
   Video,
 } from "@/types";
+import { HERO_SLIDESHOW_IMAGE, IMG } from "@/lib/school-images";
 
 export const defaultSiteSettings: SiteSettings = {
   id: "1",
@@ -28,14 +29,12 @@ export const defaultSiteSettings: SiteSettings = {
   hero_subtitle: "Ươm mầm tương lai",
   hero_description:
     "Môi trường giáo dục hiện đại, an toàn và giàu yêu thương giúp trẻ phát triển toàn diện.",
-  hero_image:
-    "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1920&q=80",
+  hero_image: HERO_SLIDESHOW_IMAGE,
   hero_video_url: null,
   about_title: "Về Trường Mầm Non Hoa Anh Đào",
   about_content:
     "Với hơn 15 năm kinh nghiệm trong lĩnh vực giáo dục mầm non, Hoa Anh Đào tự hào là ngôi nhà thứ hai của hàng trăm em nhỏ. Chúng tôi cam kết mang đến môi trường học tập an toàn, hiện đại và đầy yêu thương, nơi mỗi đứa trẻ được khám phá, phát triển và tỏa sáng theo cách riêng của mình.",
-  about_image:
-    "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
+  about_image: IMG.yearbookClass,
   cta_title: "Đăng ký tham quan trường ngay hôm nay",
   cta_description:
     "Hãy đến và trải nghiệm không gian học tập tuyệt vời dành cho bé yêu của bạn.",
@@ -58,7 +57,7 @@ export const defaultFeatures: Feature[] = [
     title: "Đội ngũ giáo viên tận tâm",
     description: "Giáo viên được đào tạo bài bản, giàu kinh nghiệm và yêu trẻ.",
     icon: "HeartHandshake",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+    image: IMG.teachersFruitArt,
     order_index: 1,
   },
   {
@@ -66,7 +65,7 @@ export const defaultFeatures: Feature[] = [
     title: "Chương trình hiện đại",
     description: "Giáo trình chuẩn quốc tế kết hợp phương pháp Montessori.",
     icon: "GraduationCap",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
+    image: IMG.summerAdventures,
     order_index: 2,
   },
   {
@@ -74,7 +73,7 @@ export const defaultFeatures: Feature[] = [
     title: "Lớp học an toàn",
     description: "Không gian được thiết kế an toàn, thân thiện với trẻ nhỏ.",
     icon: "Shield",
-    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
+    image: IMG.dailyActivity,
     order_index: 3,
   },
   {
@@ -82,7 +81,7 @@ export const defaultFeatures: Feature[] = [
     title: "Camera trực tuyến",
     description: "Hệ thống camera giúp phụ huynh theo dõi con mọi lúc.",
     icon: "Camera",
-    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
+    image: IMG.fruitFestival,
     order_index: 4,
   },
   {
@@ -90,7 +89,7 @@ export const defaultFeatures: Feature[] = [
     title: "Dinh dưỡng khoa học",
     description: "Thực đơn cân bằng dinh dưỡng, đảm bảo vệ sinh an toàn.",
     icon: "Apple",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80",
+    image: IMG.buffetParty,
     order_index: 5,
   },
   {
@@ -98,7 +97,7 @@ export const defaultFeatures: Feature[] = [
     title: "Hoạt động ngoại khóa",
     description: "Đa dạng hoạt động vui chơi, khám phá và phát triển kỹ năng.",
     icon: "Palette",
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
+    image: IMG.tropicalFruitDay,
     order_index: 6,
   },
 ];
@@ -112,7 +111,7 @@ export const defaultPrograms: Program[] = [
     description: "Chăm sóc và phát triển vận động, ngôn ngữ cho trẻ nhỏ.",
     content:
       "<p>Chương trình Nhà trẻ tập trung vào chăm sóc toàn diện, phát triển vận động tinh - thô và khả năng giao tiếp ban đầu cho trẻ từ 12-24 tháng.</p>",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80",
+    image: IMG.dailyActivity,
     gallery: [],
     order_index: 1,
     is_published: true,
@@ -127,7 +126,7 @@ export const defaultPrograms: Program[] = [
     description: "Khám phá thế giới xung quanh qua vui chơi và trải nghiệm.",
     content:
       "<p>Trẻ được khuyến khích khám phá, học hỏi qua các hoạt động vui chơi có chủ đích, phát triển tính độc lập và kỹ năng xã hội.</p>",
-    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80",
+    image: IMG.lifeSkillsBanana,
     gallery: [],
     order_index: 2,
     is_published: true,
@@ -142,7 +141,7 @@ export const defaultPrograms: Program[] = [
     description: "Phát triển tư duy logic, sáng tạo và kỹ năng giao tiếp.",
     content:
       "<p>Chương trình Lớp lá giúp trẻ phát triển tư duy logic, khả năng sáng tạo và kỹ năng làm việc nhóm thông qua các hoạt động đa dạng.</p>",
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80",
+    image: IMG.yearbookClass,
     gallery: [],
     order_index: 3,
     is_published: true,
@@ -157,7 +156,7 @@ export const defaultPrograms: Program[] = [
     description: "Chuẩn bị kỹ năng học tập và tự lập cho bậc tiểu học.",
     content:
       "<p>Trẻ được trang bị các kỹ năng cần thiết trước khi vào tiểu học: đọc, viết cơ bản, tư duy toán học và kỹ năng tự phục vụ.</p>",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80",
+    image: IMG.summerAdventures,
     gallery: [],
     order_index: 4,
     is_published: true,
@@ -172,7 +171,7 @@ export const defaultPrograms: Program[] = [
     description: "Hoàn thiện kỹ năng học tập và phát triển tính tự tin.",
     content:
       "<p>Chương trình Lớp lớn tập trung hoàn thiện kỹ năng học tập, phát triển tính tự tin và khả năng giải quyết vấn đề cho trẻ trước khi vào lớp 1.</p>",
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80",
+    image: IMG.graduationGroup,
     gallery: [],
     order_index: 5,
     is_published: true,
@@ -225,20 +224,20 @@ export const defaultTeachers: Teacher[] = [
 ];
 
 export const defaultGalleryImages: GalleryImage[] = [
-  { id: "1", title: "Phòng học hiện đại", image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80", category: "Phòng học", album_id: "1", order_index: 1 },
-  { id: "2", title: "Sân chơi ngoài trời", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80", category: "Sân chơi", album_id: "1", order_index: 2 },
-  { id: "3", title: "Thư viện trẻ em", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80", category: "Thư viện", album_id: "2", order_index: 3 },
-  { id: "4", title: "Góc nghệ thuật", image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80", category: "Hoạt động", album_id: "2", order_index: 4 },
-  { id: "5", title: "Bếp ăn dinh dưỡng", image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80", category: "Bếp ăn", album_id: "3", order_index: 5 },
-  { id: "6", title: "Phòng ngủ trưa", image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80", category: "Phòng ngủ", album_id: "3", order_index: 6 },
-  { id: "7", title: "Hoạt động ngoài trời", image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=800&q=80", category: "Hoạt động", album_id: "1", order_index: 7 },
-  { id: "8", title: "Đồ chơi giáo dục", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80", category: "Đồ chơi", album_id: "2", order_index: 8 },
+  { id: "1", title: "Tiệc trái cây", image: IMG.fruitFestival, category: "Hoạt động", album_id: "2", order_index: 1 },
+  { id: "2", title: "Kỹ năng sống", image: IMG.lifeSkillsBanana, category: "Hoạt động", album_id: "2", order_index: 2 },
+  { id: "3", title: "Trang trí hoa quả", image: IMG.teachersFruitArt, category: "Phòng học", album_id: "1", order_index: 3 },
+  { id: "4", title: "Lễ hội trái cây", image: IMG.tropicalFruitDay, category: "Sự kiện", album_id: "3", order_index: 4 },
+  { id: "5", title: "Tiệc buffet", image: IMG.buffetParty, category: "Dinh dưỡng", album_id: "3", order_index: 5 },
+  { id: "6", title: "Lễ tốt nghiệp", image: IMG.graduationGroup, category: "Sự kiện", album_id: "3", order_index: 6 },
+  { id: "7", title: "Biểu diễn tốt nghiệp", image: IMG.graduationPerformance, category: "Sự kiện", album_id: "3", order_index: 7 },
+  { id: "8", title: "Kỷ yếu lớp lá", image: IMG.yearbookClass, category: "Hoạt động", album_id: "2", order_index: 8 },
 ];
 
 export const defaultAlbums: Album[] = [
-  { id: "1", title: "Cơ sở vật chất", slug: "co-so-vat-chat", description: "Không gian học tập hiện đại", cover_image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80", order_index: 1 },
-  { id: "2", title: "Hoạt động hàng ngày", slug: "hoat-dong-hang-ngay", description: "Những khoảnh khắc đáng nhớ", cover_image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80", order_index: 2 },
-  { id: "3", title: "Sự kiện & Lễ hội", slug: "su-kien-le-hoi", description: "Các sự kiện đặc biệt trong năm", cover_image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80", order_index: 3 },
+  { id: "1", title: "Cơ sở vật chất", slug: "co-so-vat-chat", description: "Không gian học tập hiện đại", cover_image: IMG.teachersFruitArt, order_index: 1 },
+  { id: "2", title: "Hoạt động hàng ngày", slug: "hoat-dong-hang-ngay", description: "Những khoảnh khắc đáng nhớ", cover_image: IMG.fruitFestival, order_index: 2 },
+  { id: "3", title: "Sự kiện & Lễ hội", slug: "su-kien-le-hoi", description: "Các sự kiện đặc biệt trong năm", cover_image: IMG.graduationGroup, order_index: 3 },
 ];
 
 export const defaultVideos: Video[] = [
@@ -253,7 +252,7 @@ export const defaultNews: NewsPost[] = [
     slug: "khai-giang-nam-hoc-moi-2025-2026",
     excerpt: "Trường Mầm Non Hoa Anh Đào chính thức khai giảng năm học mới với nhiều hoạt động thú vị.",
     content: "<p>Ngày khai giảng đã diễn ra trong không khí vui tươi, phấn khởi với sự tham gia đông đảo của phụ huynh và học sinh.</p>",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80",
+    image: IMG.graduationGroup,
     category: "Sự kiện",
     published_at: "2025-09-01",
     is_published: true,
@@ -266,7 +265,7 @@ export const defaultNews: NewsPost[] = [
     slug: "chuong-trinh-dinh-duong-moi",
     excerpt: "Cập nhật thực đơn dinh dưỡng khoa học, đảm bảo sức khỏe cho các bé.",
     content: "<p>Thực đơn mới được xây dựng bởi chuyên gia dinh dưỡng, cân bằng đầy đủ các nhóm chất.</p>",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80",
+    image: IMG.buffetParty,
     category: "Dinh dưỡng",
     published_at: "2025-08-15",
     is_published: true,
@@ -279,7 +278,7 @@ export const defaultNews: NewsPost[] = [
     slug: "ngay-hoi-gia-dinh-2025",
     excerpt: "Sự kiện kết nối gia đình và nhà trường với nhiều trò chơi thú vị.",
     content: "<p>Ngày hội gia đình là dịp để phụ huynh và con cùng tham gia các hoạt động vui chơi, gắn kết tình cảm.</p>",
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80",
+    image: IMG.summerAdventures,
     category: "Sự kiện",
     published_at: "2025-07-20",
     is_published: true,
@@ -292,7 +291,7 @@ export const defaultNews: NewsPost[] = [
     slug: "tuyen-dung-giao-vien",
     excerpt: "Trường đang tuyển dụng giáo viên mầm non có kinh nghiệm và yêu trẻ.",
     content: "<p>Chúng tôi tìm kiếm những giáo viên tận tâm, nhiệt huyết để cùng đồng hành trong hành trình giáo dục trẻ nhỏ.</p>",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80",
+    image: IMG.teachersFruitArt,
     category: "Tuyển dụng",
     published_at: "2025-07-01",
     is_published: true,
@@ -305,7 +304,7 @@ export const defaultNews: NewsPost[] = [
     slug: "lop-hoc-montessori-moi",
     excerpt: "Không gian học tập theo phương pháp Montessori hiện đại.",
     content: "<p>Phòng học Montessori được trang bị đầy đủ dụng cụ học tập, tạo môi trường lý tưởng cho trẻ tự khám phá.</p>",
-    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80",
+    image: IMG.dailyActivity,
     category: "Giáo dục",
     published_at: "2025-06-10",
     is_published: true,
@@ -318,7 +317,7 @@ export const defaultNews: NewsPost[] = [
     slug: "chuong-trinh-he-2025",
     excerpt: "Đăng ký chương trình hè với nhiều hoạt động bổ ích cho trẻ.",
     content: "<p>Chương trình hè bao gồm các hoạt động ngoại khóa, bơi lội, nghệ thuật và khám phá khoa học.</p>",
-    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80",
+    image: IMG.tropicalFruitDay,
     category: "Chương trình",
     published_at: "2025-05-25",
     is_published: true,
@@ -382,7 +381,7 @@ export const defaultBanners: Banner[] = [
   {
     id: "1",
     title: "Đăng ký tuyển sinh 2025-2026",
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&q=80",
+    image: HERO_SLIDESHOW_IMAGE,
     link: "/tuyen-sinh",
     order_index: 1,
     is_active: true,

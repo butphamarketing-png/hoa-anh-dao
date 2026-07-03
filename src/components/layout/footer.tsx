@@ -34,10 +34,10 @@ export function Footer() {
       <div className="relative z-[1] mx-auto max-w-7xl px-4 py-10 lg:px-8 lg:py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           <div>
-            <h3 className="font-heading text-2xl font-extrabold leading-tight tracking-wide">
+            <h3 className="font-display text-2xl font-semibold leading-tight tracking-wide">
               {t.site.tagline}
             </h3>
-            <p className="mt-1 font-heading text-lg font-semibold text-white/90">
+            <p className="mt-1 font-display text-lg font-medium text-white/90">
               {t.site.preschool}
             </p>
             <p className="mt-4 font-body text-body-sm leading-relaxed text-white/70">

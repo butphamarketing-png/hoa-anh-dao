@@ -7,6 +7,7 @@ import { FadeUp } from "@/components/shared/motion-wrapper";
 import { getNews } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
+import { IMG } from "@/lib/school-images";
 
 export const metadata = generatePageMetadata({
   title: "Tin tức",
@@ -31,7 +32,7 @@ export default async function NewsPage() {
       <LocalizedPageHero
         page="news"
         breadcrumb={[{ label: "Tin tức" }]}
-        image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80"
+        image={IMG.graduationPerformance}
       />
 
       <Section>

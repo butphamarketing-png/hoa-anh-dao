@@ -5,6 +5,7 @@ import { WavyDivider } from "@/components/shared/wavy-divider";
 import { ProgramsShowcase } from "@/components/programs/programs-showcase";
 import { CtaSection } from "@/components/home/cta-section";
 import { VISIT_FORM_IMAGE } from "@/lib/constants";
+import { IMG } from "@/lib/school-images";
 import { getPrograms } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
 
@@ -31,7 +32,7 @@ export default async function ProgramsPage() {
       <LocalizedPageHero
         page="programs"
         breadcrumb={[{ label: "Chương trình học" }]}
-        image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80"
+        image={IMG.yearbookClass}
       />
 
       <Section variant="warm" className="relative !py-10 lg:!py-14">

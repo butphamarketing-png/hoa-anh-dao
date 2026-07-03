@@ -72,7 +72,7 @@ export function ProgramFlowerCard({
 
       <p
         className={cn(
-          "font-heading font-extrabold leading-snug text-primary-green transition-colors group-hover:text-primary-pink",
+          "font-display font-semibold leading-snug text-primary-green transition-colors group-hover:text-primary-pink",
           labelClasses[size]
         )}
       >

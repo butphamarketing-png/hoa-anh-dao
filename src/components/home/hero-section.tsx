@@ -12,6 +12,7 @@ import {
   GradientOrb,
   SoftCloud,
 } from "@/components/shared/decorations";
+import { ChildWithCartArt } from "@/components/shared/line-art-illustrations";
 import type { SiteSettings } from "@/types";
 
 interface HeroSectionProps {
@@ -47,13 +48,22 @@ export function HeroSection({ settings }: HeroSectionProps) {
         className="absolute bottom-28 left-4 hidden opacity-15 lg:block xl:left-10"
         size={90}
       />
+      <ChildWithCartArt
+        className="absolute bottom-16 right-4 hidden lg:block xl:right-12"
+        size={220}
+        opacity={0.9}
+      />
+      <ChildWithCartArt
+        className="absolute bottom-20 left-2 hidden opacity-70 md:block lg:hidden"
+        size={140}
+      />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 pt-24 text-center lg:pt-32">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-heading text-display-sm font-extrabold leading-[1.15] tracking-tight text-white md:text-display-md lg:text-[3.5rem]"
+          className="font-display text-display-sm font-semibold leading-[1.15] tracking-tight text-white md:text-display-md lg:text-[3.5rem]"
         >
           {t.home.hero.title}
           <br />

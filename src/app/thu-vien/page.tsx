@@ -2,6 +2,7 @@ import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { GalleryTabs } from "@/components/gallery/gallery-tabs";
+import { IMG } from "@/lib/school-images";
 import { getAlbums, getVideos } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
 
@@ -28,7 +29,7 @@ export default async function GalleryPage() {
       <LocalizedPageHero
         page="gallery"
         breadcrumb={[{ label: "Thư viện ảnh" }]}
-        image="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1920&q=80"
+        image={IMG.fruitFestival}
       />
 
       <Section>

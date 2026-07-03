@@ -36,7 +36,7 @@ export function LocalizedPageHero({ page, breadcrumb, image }: LocalizedPageHero
         <Breadcrumb items={localizedBreadcrumb} light={!!image} />
         <h1
           className={cn(
-            "mt-5 font-heading text-display-sm font-bold tracking-tight md:text-display-md",
+            "mt-5 font-display text-display-sm font-semibold tracking-tight md:text-display-md",
             image ? "text-white" : "text-foreground"
           )}
         >

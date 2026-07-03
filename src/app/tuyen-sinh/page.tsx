@@ -5,6 +5,7 @@ import { FadeUp } from "@/components/shared/motion-wrapper";
 import { RegistrationForm } from "@/components/forms/registration-form";
 import { getEnrollmentInfo } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
+import { IMG } from "@/lib/school-images";
 
 export const metadata = generatePageMetadata({
   title: "Tuyển sinh",
@@ -35,7 +36,7 @@ export default async function EnrollmentPage() {
       <LocalizedPageHero
         page="enrollment"
         breadcrumb={[{ label: "Tuyển sinh" }]}
-        image="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1920&q=80"
+        image={IMG.graduationGroup}
       />
 
       <Section>

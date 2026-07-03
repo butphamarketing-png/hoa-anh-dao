@@ -5,6 +5,7 @@ import { Section } from "@/components/shared/section";
 import { ContactForm } from "@/components/forms/contact-form";
 import { SITE_CONFIG } from "@/lib/constants";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
+import { IMG } from "@/lib/school-images";
 
 export const metadata = generatePageMetadata({
   title: "Liên hệ",
@@ -27,7 +28,7 @@ export default function ContactPage() {
       <LocalizedPageHero
         page="contact"
         breadcrumb={[{ label: "Liên hệ" }]}
-        image="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&q=80"
+        image={IMG.dailyActivity}
       />
 
       <Section>

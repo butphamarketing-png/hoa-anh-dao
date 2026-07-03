@@ -36,6 +36,7 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
   const pathname = usePathname();
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const isAdmin = pathname?.startsWith("/admin");
 
@@ -49,14 +50,18 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
   }, []);
 
   useEffect(() => {
-    if (isAdmin) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || isAdmin) return;
 
     const dismissed = sessionStorage.getItem(STORAGE_KEY);
     if (dismissed) return;
 
-    const timer = setTimeout(() => setOpen(true), 400);
+    const timer = setTimeout(() => setOpen(true), 500);
     return () => clearTimeout(timer);
-  }, [isAdmin, pathname]);
+  }, [mounted, isAdmin]);
 
   const handleOpenChange = (next: boolean) => {
     if (!next) handleClose();
@@ -67,11 +72,11 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
     <VisitPopupContext.Provider value={{ openPopup }}>
       {children}
 
-      {!isAdmin && (
+      {!isAdmin && mounted && (
         <Dialog open={open} onOpenChange={handleOpenChange}>
-          <DialogContent className="max-h-[95vh] max-w-[920px] overflow-hidden border-0 p-0 sm:rounded-[28px]">
-            <div className="grid max-h-[95vh] overflow-y-auto md:grid-cols-2 md:overflow-hidden">
-              <div className="relative hidden min-h-[320px] md:block md:min-h-[580px]">
+          <DialogContent className="!max-w-[920px] max-h-[95vh] overflow-hidden border-0 p-0 sm:rounded-[28px]">
+            <div className="grid max-h-[95vh] overflow-y-auto sm:grid-cols-2 sm:overflow-hidden">
+              <div className="relative hidden min-h-[520px] sm:block">
                 <Image
                   src={image}
                   alt="Trường Mầm Non Hoa Anh Đào"
@@ -82,7 +87,7 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <p className="font-heading text-xl font-extrabold leading-snug">
+                  <p className="font-display text-xl font-semibold leading-snug">
                     {t.popup.imageCaption}
                   </p>
                   <p className="mt-2 font-body text-body-sm text-white/85">
@@ -91,17 +96,17 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
                 </div>
               </div>
 
-              <div className="relative flex flex-col bg-warm p-6 sm:p-8 md:max-h-[580px] md:overflow-y-auto">
+              <div className="relative flex max-h-[95vh] flex-col bg-warm p-6 sm:max-h-[580px] sm:overflow-y-auto sm:p-8">
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="absolute right-4 top-4 rounded-full bg-white/80 p-2 text-foreground/50 transition-colors hover:bg-white hover:text-foreground"
+                  className="absolute right-4 top-4 z-10 rounded-full bg-white/80 p-2 text-foreground/50 transition-colors hover:bg-white hover:text-foreground"
                   aria-label={t.common.close}
                 >
                   <X className="h-5 w-5" />
                 </button>
 
-                <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-[20px] md:hidden">
+                <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-[20px] sm:hidden">
                   <Image
                     src={image}
                     alt="Trường Mầm Non Hoa Anh Đào"
@@ -111,10 +116,10 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
                   />
                 </div>
 
-                <h2 className="pr-10 font-heading text-xl font-extrabold leading-snug text-primary-pink md:text-2xl">
+                <h2 className="pr-10 font-display text-xl font-semibold leading-snug text-primary-pink sm:text-2xl">
                   {t.popup.title}
                 </h2>
-                <p className="mt-2 font-body text-body-sm leading-relaxed text-foreground/70 md:text-body-md">
+                <p className="mt-2 font-body text-body-sm leading-relaxed text-foreground/70">
                   {t.popup.description}
                 </p>
                 <p className="mt-1 font-body text-xs text-foreground/45">{t.popup.privacy}</p>

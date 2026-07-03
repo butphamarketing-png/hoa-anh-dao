@@ -37,7 +37,7 @@ export function Logo({ size = "md", showText = true, light = false, className }:
         <div className="hidden sm:block">
           <p
             className={cn(
-              "font-heading text-sm font-extrabold uppercase leading-tight tracking-wide lg:text-[0.9375rem]",
+              "font-display text-[0.9375rem] font-semibold uppercase leading-tight tracking-wide lg:text-base",
               light ? "text-white" : "text-primary-green"
             )}
           >

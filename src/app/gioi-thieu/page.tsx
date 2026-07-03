@@ -4,6 +4,7 @@ import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
 import { getAboutPage, getTeachers } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
+import { IMG } from "@/lib/school-images";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,7 +38,7 @@ export default async function AboutPage() {
       <LocalizedPageHero
         page="about"
         breadcrumb={[{ label: "Giới thiệu" }]}
-        image="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1920&q=80"
+        image={IMG.yearbookClass}
       />
 
       <Section>

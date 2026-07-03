@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { Nunito, Be_Vietnam_Pro } from "next/font/google";
+import { Nunito, Be_Vietnam_Pro, Baloo_2 } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MainWrapper } from "@/components/layout/main-wrapper";
@@ -15,6 +15,13 @@ const nunito = Nunito({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-nunito",
+  display: "swap",
+});
+
+const baloo = Baloo_2({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-fredoka",
   display: "swap",
 });
 
@@ -39,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const initialLang = getLangFromCookieValue(cookieStore.get(LANG_COOKIE)?.value);
 
   return (
-    <html lang={initialLang === "en" ? "en" : "vi"} className={`${nunito.variable} ${beVietnam.variable}`}>
+    <html lang={initialLang === "en" ? "en" : "vi"} className={`${nunito.variable} ${beVietnam.variable} ${baloo.variable}`}>
       <head>
         <script
           type="application/ld+json"

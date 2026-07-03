@@ -6,6 +6,7 @@ import { Section } from "@/components/shared/section";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { getTeachers } from "@/lib/data";
 import { generatePageMetadata, generateBreadcrumbSchema } from "@/lib/seo";
+import { IMG } from "@/lib/school-images";
 
 export const metadata = generatePageMetadata({
   title: "Đội ngũ giáo viên",
@@ -30,7 +31,7 @@ export default async function TeachersPage() {
       <LocalizedPageHero
         page="teachers"
         breadcrumb={[{ label: "Đội ngũ giáo viên" }]}
-        image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80"
+        image={IMG.teachersFruitArt}
       />
 
       <Section>
