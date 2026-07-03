@@ -15,19 +15,21 @@ import {
   getFeatures,
   getPrograms,
   getGalleryImages,
+  getVideos,
   getTeachers,
   getNews,
   getTestimonials,
 } from "@/lib/data";
 
 export default async function HomePage() {
-  const [settings, counters, features, programs, galleryImages, teachers, news, testimonials] =
+  const [settings, counters, features, programs, galleryImages, videos, teachers, news, testimonials] =
     await Promise.all([
       getSiteSettings(),
       getCounters(),
       getFeatures(),
       getPrograms(),
       getGalleryImages(),
+      getVideos(),
       getTeachers(),
       getNews(6),
       getTestimonials(),
@@ -40,7 +42,7 @@ export default async function HomePage() {
       <StatsSection counters={counters} />
       <FeaturesSection features={features} />
       <ProgramsSection programs={programs} />
-      <FacilitiesSection images={galleryImages} />
+      <FacilitiesSection images={galleryImages} videos={videos} />
       <TeachersSection teachers={teachers} />
       <NewsSection posts={news} />
       <TestimonialsSection testimonials={testimonials} />

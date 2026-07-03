@@ -2,7 +2,6 @@
 
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
-import { ScallopedDivider } from "@/components/shared/decorations";
 import { ProgramsShowcase } from "@/components/programs/programs-showcase";
 import type { Program } from "@/types";
 
@@ -16,7 +15,6 @@ export function ProgramsSection({ programs }: ProgramsSectionProps) {
       <Container>
         <ProgramsShowcase programs={programs} showViewAll />
       </Container>
-      <ScallopedDivider fill="#FFFFFF" edge="bottom" className="absolute bottom-0 left-0 w-full" />
     </Section>
   );
 }

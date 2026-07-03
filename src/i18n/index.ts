@@ -65,6 +65,7 @@ export type Translations = {
       label: string;
       title: string;
       subtitle: string;
+      viewAll: string;
     };
     teachers: {
       title: string;
@@ -127,7 +128,7 @@ export type Translations = {
     contact: { title: string; description: string };
     teachers: { title: string; description: string };
     facilities: { title: string; description: string };
-    gallery: { title: string; description: string };
+    gallery: { title: string; description: string; tabVideo: string; tabImages: string };
     news: { title: string; description: string };
   };
 };
@@ -229,6 +230,7 @@ export const vi: Translations = {
       label: "Cơ sở vật chất",
       title: "Môi trường học tập hiện đại",
       subtitle: "Không gian an toàn, thân thiện và được thiết kế dành riêng cho trẻ nhỏ",
+      viewAll: "Xem tất cả",
     },
     teachers: {
       title: "Đội ngũ giáo viên",
@@ -313,6 +315,8 @@ export const vi: Translations = {
     gallery: {
       title: "Thư viện ảnh",
       description: "Khoảnh khắc đáng nhớ tại Hoa Anh Đào",
+      tabVideo: "Video",
+      tabImages: "Hình ảnh",
     },
     news: {
       title: "Tin tức",
@@ -418,6 +422,7 @@ export const en: Translations = {
       label: "Facilities",
       title: "Modern Learning Environment",
       subtitle: "Safe, friendly spaces designed especially for young children",
+      viewAll: "View All",
     },
     teachers: {
       title: "Our Teachers",
@@ -502,6 +507,8 @@ export const en: Translations = {
     gallery: {
       title: "Photo Gallery",
       description: "Memorable moments at Hoa Anh Dao",
+      tabVideo: "Video",
+      tabImages: "Photos",
     },
     news: {
       title: "News",

@@ -16,7 +16,7 @@ export function AboutSection({ settings }: AboutSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section className="!py-8 lg:!py-10" scallop decor>
+    <Section className="!py-8 lg:!py-10" decor>
       <OrganicBlob className="absolute -left-6 top-16" color="#00A651" />
       <Container>
         <FadeUp>
