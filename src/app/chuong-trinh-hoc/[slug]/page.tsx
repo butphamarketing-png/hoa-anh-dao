@@ -100,7 +100,7 @@ export default async function ProgramDetailPage({ params }: Props) {
         </section>
       )}
 
-      <CtaSection />
+      <CtaSection image={settings.hero_image} />
     </>
   );
 }

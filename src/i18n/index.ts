@@ -54,6 +54,7 @@ export type Translations = {
     programs: {
       title: string;
       subtitle: string;
+      items: Record<string, { tagline: string }>;
     };
     features: {
       title: string;
@@ -194,6 +195,13 @@ export const vi: Translations = {
       title: "Chương trình mầm non",
       subtitle:
         "Chương trình giáo dục phù hợp từng độ tuổi, giúp bé phát triển toàn diện trong niềm vui và hạnh phúc",
+      items: {
+        "1": { tagline: "Tôi khám phá" },
+        "2": { tagline: "Tôi độc lập" },
+        "3": { tagline: "Tôi sáng tạo" },
+        "4": { tagline: "Tôi năng động" },
+        "5": { tagline: "Tôi sẵn sàng" },
+      },
     },
     features: {
       title: "Vì sao chọn Hoa Anh Đào?",
@@ -376,6 +384,13 @@ export const en: Translations = {
       title: "Preschool Programs",
       subtitle:
         "Age-appropriate curricula designed to help children grow joyfully and holistically",
+      items: {
+        "1": { tagline: "I am curious" },
+        "2": { tagline: "I am independent" },
+        "3": { tagline: "I am creative" },
+        "4": { tagline: "I am active" },
+        "5": { tagline: "I am ready" },
+      },
     },
     features: {
       title: "Why Choose Hoa Anh Dao?",
