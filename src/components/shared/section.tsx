@@ -29,7 +29,7 @@ export function Section({
   wave = false,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("relative py-12 lg:py-16", variantStyles[variant], className)}>
+    <section id={id} className={cn("relative py-8 lg:py-10", variantStyles[variant], className)}>
       {wave && <WavyDivider fill={waveFill[variant]} className="absolute left-0 top-0 w-full" />}
       {children}
     </section>

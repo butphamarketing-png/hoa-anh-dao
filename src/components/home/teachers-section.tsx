@@ -23,7 +23,7 @@ export function TeachersSection({ teachers }: TeachersSectionProps) {
           <SectionHeading title={t.home.teachers.title} subtitle={t.home.teachers.subtitle} />
         </FadeUp>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {teachers.map((teacher, index) => (
             <FadeUp key={teacher.id} delay={index * 0.1}>
               <Link href={`/giao-vien/${teacher.slug}`} className="group block text-center">

@@ -15,7 +15,7 @@ export function StatsSection({ counters }: StatsSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section variant="warm" className="!py-10 lg:!py-12">
+    <Section variant="warm" className="!py-7 lg:!py-9">
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">

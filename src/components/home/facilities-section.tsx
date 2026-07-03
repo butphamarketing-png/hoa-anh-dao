@@ -21,7 +21,7 @@ export function FacilitiesSection({ images }: FacilitiesSectionProps) {
   const [featured, ...grid] = display;
 
   return (
-    <Section>
+    <Section className="!pt-4 lg:!pt-5">
       <Container>
         <FadeUp>
           <SectionHeading
@@ -32,11 +32,11 @@ export function FacilitiesSection({ images }: FacilitiesSectionProps) {
         </FadeUp>
 
         {featured && (
-          <div className="mt-8 grid gap-3 lg:grid-cols-2 lg:gap-4">
+          <div className="mt-6 grid gap-3 lg:grid-cols-2 lg:gap-4">
             <FadeUp>
               <button
                 type="button"
-                className="group relative block h-full min-h-[280px] w-full overflow-hidden rounded-[20px] shadow-soft lg:min-h-[520px]"
+                className="group relative block aspect-[4/3] w-full overflow-hidden rounded-[20px] shadow-soft lg:aspect-auto lg:min-h-[360px]"
                 onClick={() => setLightboxImage(featured)}
               >
                 <Image

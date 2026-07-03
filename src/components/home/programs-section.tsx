@@ -17,9 +17,10 @@ interface ProgramsSectionProps {
 
 export function ProgramsSection({ programs }: ProgramsSectionProps) {
   const { t } = useLanguage();
+  const displayPrograms = programs.slice(0, 3);
 
   return (
-    <Section>
+    <Section className="!pb-4 lg:!pb-5">
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
@@ -27,8 +28,8 @@ export function ProgramsSection({ programs }: ProgramsSectionProps) {
           </div>
         </FadeUp>
 
-        <div className="-mx-4 mt-8 flex gap-5 overflow-x-auto px-4 pb-2 scrollbar-hide snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
-          {programs.map((program, index) => (
+        <div className="-mx-4 mt-6 flex gap-5 overflow-x-auto px-4 pb-2 scrollbar-hide snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
+          {displayPrograms.map((program, index) => (
             <FadeUp key={program.id} delay={index * 0.08} className="shrink-0 snap-start lg:shrink">
               <article className="group flex h-full w-[280px] flex-col overflow-hidden rounded-[28px] bg-white shadow-soft ring-2 ring-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:ring-warm-alt lg:w-auto">
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -66,7 +67,7 @@ export function ProgramsSection({ programs }: ProgramsSectionProps) {
           ))}
         </div>
 
-        <FadeUp className="mt-8 text-center">
+        <FadeUp className="mt-6 text-center">
           <Button asChild variant="outline" className="rounded-full">
             <Link href="/chuong-trinh-hoc">{t.common.viewAllPrograms}</Link>
           </Button>

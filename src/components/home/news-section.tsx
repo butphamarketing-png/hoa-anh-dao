@@ -20,7 +20,7 @@ export function NewsSection({ posts }: NewsSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section variant="warm" wave>
+    <Section variant="warm" wave className="!py-8 lg:!py-10">
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">

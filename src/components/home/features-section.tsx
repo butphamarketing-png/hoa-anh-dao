@@ -34,7 +34,7 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
   const items = features.slice(0, 4);
 
   return (
-    <Section variant="warm">
+    <Section variant="warm" className="!pb-5 lg:!pb-6">
       <PlayfulBlob className="right-4 top-8 h-20 w-20" color="#D61F8C" />
       <Container>
         <FadeUp>

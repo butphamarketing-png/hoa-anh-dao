@@ -16,7 +16,7 @@ export function AboutSection({ settings }: AboutSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section className="!py-10 lg:!py-14" wave>
+    <Section className="!py-8 lg:!py-10" wave>
       <PlayfulBlob className="-left-8 top-12 h-24 w-24" color="#00A651" />
       <Container>
         <FadeUp>

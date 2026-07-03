@@ -12,7 +12,7 @@ export function CtaSection() {
   const { t } = useLanguage();
 
   return (
-    <Section className="relative overflow-hidden !py-12 lg:!py-16">
+    <Section className="relative overflow-hidden !py-10 lg:!py-12">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-green via-primary-green to-accent-blue" />
       <div
         className="absolute inset-0 opacity-10"
