@@ -32,7 +32,7 @@ export function FacilitiesSection({ images }: FacilitiesSectionProps) {
         </FadeUp>
 
         {featured && (
-          <div className="mt-14 grid gap-3 lg:grid-cols-2 lg:gap-4">
+          <div className="mt-8 grid gap-3 lg:grid-cols-2 lg:gap-4">
             <FadeUp>
               <button
                 type="button"

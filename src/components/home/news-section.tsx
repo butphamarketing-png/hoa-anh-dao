@@ -28,7 +28,7 @@ export function NewsSection({ posts }: NewsSectionProps) {
           </div>
         </FadeUp>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {posts.slice(0, 3).map((post, index) => (
             <FadeUp key={post.id} delay={index * 0.1}>
               <Link href={`/tin-tuc/${post.slug}`} className="group block h-full">
@@ -63,7 +63,7 @@ export function NewsSection({ posts }: NewsSectionProps) {
           ))}
         </div>
 
-        <FadeUp className="mt-12 text-center">
+        <FadeUp className="mt-8 text-center">
           <Button asChild variant="outline" className="rounded-full">
             <Link href="/tin-tuc">{t.common.viewAllNews}</Link>
           </Button>

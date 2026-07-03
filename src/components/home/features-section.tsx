@@ -60,7 +60,7 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
           </div>
         </FadeUp>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:gap-6">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:gap-6">
           {items.map((feature, index) => {
             const Icon = iconMap[feature.icon] || HeartHandshake;
             const copy = t.home.features.items[feature.id] ?? {

@@ -28,7 +28,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
           />
         </FadeUp>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
             <FadeUp key={item.id} delay={index * 0.1}>
               <article className="relative flex h-full flex-col rounded-[28px] bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">

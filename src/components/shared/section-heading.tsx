@@ -35,7 +35,7 @@ export function SectionHeading({
         </p>
       )}
       <div
-        className={`mt-5 h-[3px] w-12 rounded-full bg-primary-pink ${centered ? "mx-auto" : ""}`}
+        className={`mt-3 h-[3px] w-12 rounded-full bg-primary-pink ${centered ? "mx-auto" : ""}`}
       />
     </div>
   );

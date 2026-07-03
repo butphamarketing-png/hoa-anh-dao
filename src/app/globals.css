@@ -56,11 +56,11 @@
   }
 
   .section-subtitle {
-    @apply mt-4 max-w-3xl font-body text-body-md leading-[1.8] text-foreground/65 md:text-body-lg;
+    @apply mt-2 max-w-3xl font-body text-body-md leading-relaxed text-foreground/65 md:text-body-lg;
   }
 
   .sw-stat-value {
-    @apply font-heading text-4xl font-extrabold text-primary-green md:text-5xl lg:text-[3.25rem];
+    @apply font-heading text-3xl font-extrabold text-primary-green md:text-4xl lg:text-[2.75rem];
   }
 
   .sw-stat-label {

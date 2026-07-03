@@ -15,7 +15,7 @@ export function StatsSection({ counters }: StatsSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section variant="warm">
+    <Section variant="warm" className="!py-10 lg:!py-12">
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
@@ -24,7 +24,7 @@ export function StatsSection({ counters }: StatsSectionProps) {
           </div>
         </FadeUp>
 
-        <div className="mt-14 grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-8">
+        <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-4">
           {counters.map((counter, index) => (
             <FadeUp key={counter.id} delay={index * 0.08}>
               <AnimatedCounter
