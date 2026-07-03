@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
-import { PlayfulBlob } from "@/components/shared/wavy-divider";
+import { OrganicBlob } from "@/components/shared/decorations";
 import { useLanguage } from "@/contexts/language-context";
 import type { SiteSettings } from "@/types";
 
@@ -16,8 +16,8 @@ export function AboutSection({ settings }: AboutSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section className="!py-8 lg:!py-10" wave>
-      <PlayfulBlob className="-left-8 top-12 h-24 w-24" color="#00A651" />
+    <Section className="!py-8 lg:!py-10" scallop decor>
+      <OrganicBlob className="absolute -left-6 top-16" color="#00A651" />
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-4xl text-center">

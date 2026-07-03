@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
+import {
+  CherryBlossomArt,
+  FallingPetals,
+  GradientOrb,
+  SoftCloud,
+} from "@/components/shared/decorations";
 import type { SiteSettings } from "@/types";
 
 interface HeroSectionProps {
@@ -26,6 +32,21 @@ export function HeroSection({ settings }: HeroSectionProps) {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/65" />
+
+      <FallingPetals />
+      <GradientOrb className="left-[5%] top-[15%]" color="#00A651" size={220} />
+      <GradientOrb className="right-[8%] top-[25%]" color="#D61F8C" size={160} />
+      <GradientOrb className="bottom-[20%] left-[30%]" color="#27B5E6" size={140} />
+      <SoftCloud className="absolute left-6 top-28 hidden md:block" />
+      <SoftCloud className="absolute right-10 top-40 hidden scale-75 md:block" />
+      <CherryBlossomArt
+        className="absolute right-4 top-24 hidden opacity-20 lg:block xl:right-10"
+        size={130}
+      />
+      <CherryBlossomArt
+        className="absolute bottom-28 left-4 hidden opacity-15 lg:block xl:left-10"
+        size={90}
+      />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 pt-24 text-center lg:pt-32">
         <motion.h1

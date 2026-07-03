@@ -8,6 +8,12 @@ import { NAV_ITEMS } from "@/lib/navigation";
 import { useLanguage } from "@/contexts/language-context";
 import { Logo } from "@/components/shared/logo";
 import { WavyDivider } from "@/components/shared/wavy-divider";
+import {
+  CherryBlossomArt,
+  DotPattern,
+  FallingPetals,
+  LeafArt,
+} from "@/components/shared/decorations";
 
 export function Footer() {
   const pathname = usePathname();
@@ -16,10 +22,21 @@ export function Footer() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <footer className="relative bg-primary-green text-white">
+    <footer className="relative overflow-hidden bg-primary-green text-white">
       <WavyDivider fill="#00A651" flip className="-mt-px" />
+      <DotPattern color="#FFFFFF" opacity={0.04} />
+      <FallingPetals />
+      <CherryBlossomArt
+        className="absolute left-4 top-12 hidden opacity-[0.12] md:block"
+        size={110}
+      />
+      <CherryBlossomArt
+        className="absolute bottom-20 right-6 hidden rotate-12 opacity-10 md:block"
+        size={90}
+      />
+      <LeafArt className="absolute bottom-32 left-8 hidden opacity-10 lg:block" size={75} />
 
-      <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+      <div className="relative z-[1] mx-auto max-w-7xl px-4 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="mb-6">

@@ -70,6 +70,34 @@
   .playful-card {
     @apply rounded-[28px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card;
   }
+
+  .petal-fall {
+    animation: petal-fall linear infinite;
+  }
+
+  @keyframes petal-fall {
+    0% {
+      transform: translateY(-10px) rotate(0deg) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg) translateX(30px);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .petal-fall {
+      animation: none;
+      display: none;
+    }
+  }
 }
 
 @layer utilities {

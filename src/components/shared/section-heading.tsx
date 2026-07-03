@@ -1,3 +1,5 @@
+import { HandDrawnStroke } from "@/components/shared/decorations";
+
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
@@ -34,9 +36,7 @@ export function SectionHeading({
           {subtitle}
         </p>
       )}
-      <div
-        className={`mt-3 h-[3px] w-12 rounded-full bg-primary-pink ${centered ? "mx-auto" : ""}`}
-      />
+      <HandDrawnStroke centered={centered} color={light ? "#FFFFFF" : "#D61F8C"} />
     </div>
   );
 }

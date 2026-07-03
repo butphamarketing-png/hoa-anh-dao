@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { VisitScheduleForm } from "@/components/forms/visit-schedule-form";
+import { CherryBlossomArt, HandDrawnStroke } from "@/components/shared/decorations";
 import { useLanguage } from "@/contexts/language-context";
 
 const STORAGE_KEY = "hoa-anh-dao-visit-popup";
@@ -66,6 +67,7 @@ export function VisitPopup({ image }: VisitPopupProps) {
           </div>
 
           <div className="relative flex flex-col bg-warm p-6 sm:p-8 md:max-h-[580px] md:overflow-y-auto">
+            <CherryBlossomArt className="absolute right-12 top-10 hidden opacity-[0.1] md:block" size={90} />
             <button
               type="button"
               onClick={handleClose}
@@ -88,6 +90,7 @@ export function VisitPopup({ image }: VisitPopupProps) {
             <h2 className="pr-10 font-heading text-xl font-extrabold leading-snug text-primary-pink md:text-2xl">
               {t.popup.title}
             </h2>
+            <HandDrawnStroke centered={false} className="w-20" />
             <p className="mt-2 font-body text-body-sm leading-relaxed text-foreground/70 md:text-body-md">
               {t.popup.description}
             </p>

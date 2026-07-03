@@ -4,6 +4,7 @@ import { AnimatedCounter } from "@/components/shared/animated-counter";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { Container } from "@/components/shared/container";
 import { Section } from "@/components/shared/section";
+import { HandDrawnStroke } from "@/components/shared/decorations";
 import { useLanguage } from "@/contexts/language-context";
 import type { CounterStat } from "@/types";
 
@@ -15,11 +16,12 @@ export function StatsSection({ counters }: StatsSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section variant="warm" className="!py-7 lg:!py-9">
+    <Section variant="warm" className="!py-7 lg:!py-9" decor>
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="section-title">{t.home.stats.title}</h2>
+            <HandDrawnStroke />
             <p className="section-subtitle mx-auto">{t.home.stats.subtitle}</p>
           </div>
         </FadeUp>
