@@ -35,7 +35,7 @@ export default async function EnrollmentPage() {
       <LocalizedPageHero
         page="enrollment"
         breadcrumb={[{ label: "Tuyển sinh" }]}
-        image="https://images.unsplash.com/photo-1560421683-6857ea356b30?w=1920&q=80"
+        image="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1920&q=80"
       />
 
       <Section>

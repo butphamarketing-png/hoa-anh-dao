@@ -22,7 +22,7 @@ const fallbackImages: Record<string, string> = {
   "1": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
   "2": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
   "3": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
-  "4": "https://images.unsplash.com/photo-1560421683-6857ea356b30?w=800&q=80",
+  "4": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
 };
 
 interface FeaturesSectionProps {
