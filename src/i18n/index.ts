@@ -177,7 +177,7 @@ export const vi: Translations = {
         "Môi trường giáo dục hiện đại, an toàn và giàu yêu thương giúp trẻ phát triển toàn diện.",
     },
     about: {
-      welcome: "Trường Mầm Non Hoa Anh Đào xin chào!",
+      welcome: "Trường Mầm Non Hoa Anh Đào",
       content:
         "Với hơn 15 năm kinh nghiệm trong lĩnh vực giáo dục mầm non, Hoa Anh Đào tự hào là ngôi nhà thứ hai của hàng trăm em nhỏ. Chúng tôi cam kết mang đến môi trường học tập an toàn, hiện đại và đầy yêu thương.",
     },
@@ -366,7 +366,7 @@ export const en: Translations = {
         "A modern, safe, and loving educational environment that helps children develop holistically.",
     },
     about: {
-      welcome: "Welcome to Hoa Anh Dao Preschool!",
+      welcome: "Hoa Anh Dao Preschool",
       content:
         "With over 15 years of experience in early childhood education, Hoa Anh Dao is proud to be a second home for hundreds of little ones. We are committed to providing a safe, modern, and loving learning environment.",
     },

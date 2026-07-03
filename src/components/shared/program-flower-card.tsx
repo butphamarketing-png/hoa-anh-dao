@@ -7,12 +7,29 @@ interface ProgramFlowerCardProps {
   image: string;
   label: string;
   className?: string;
+  size?: "default" | "large";
 }
 
-export function ProgramFlowerCard({ href, image, label, className }: ProgramFlowerCardProps) {
+const sizeClasses = {
+  default: "w-[180px] sm:w-[200px] lg:w-[220px]",
+  large: "w-[210px] sm:w-[240px] lg:w-[260px] xl:w-[280px]",
+};
+
+const labelClasses = {
+  default: "max-w-[220px] text-base sm:text-lg lg:text-xl",
+  large: "max-w-[280px] text-lg sm:text-xl lg:text-[1.35rem]",
+};
+
+export function ProgramFlowerCard({
+  href,
+  image,
+  label,
+  className,
+  size = "large",
+}: ProgramFlowerCardProps) {
   return (
     <Link href={href} className={cn("group flex flex-col items-center text-center", className)}>
-      <div className="relative mb-5 aspect-square w-[180px] sm:w-[200px] lg:w-[220px]">
+      <div className={cn("relative mb-5 aspect-square", sizeClasses[size])}>
         <svg
           viewBox="0 0 220 220"
           className="absolute inset-0 h-full w-full drop-shadow-md"
@@ -31,13 +48,18 @@ export function ProgramFlowerCard({ href, image, label, className }: ProgramFlow
               alt={label}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="220px"
+              sizes={size === "large" ? "280px" : "220px"}
             />
           </div>
         </div>
       </div>
 
-      <p className="max-w-[220px] font-heading text-base font-extrabold leading-snug text-primary-green transition-colors group-hover:text-primary-pink sm:text-lg lg:text-xl">
+      <p
+        className={cn(
+          "font-heading font-extrabold leading-snug text-primary-green transition-colors group-hover:text-primary-pink",
+          labelClasses[size]
+        )}
+      >
         {label}
       </p>
     </Link>

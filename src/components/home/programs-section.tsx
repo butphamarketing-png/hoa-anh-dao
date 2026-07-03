@@ -12,7 +12,7 @@ interface ProgramsSectionProps {
 
 export function ProgramsSection({ programs }: ProgramsSectionProps) {
   return (
-    <Section variant="warm" className="!pb-6 lg:!pb-8" decor>
+    <Section variant="warm" className="!py-10 lg:!py-14 !pb-8 lg:!pb-10" decor>
       <Container>
         <ProgramsShowcase programs={programs} showViewAll />
       </Container>

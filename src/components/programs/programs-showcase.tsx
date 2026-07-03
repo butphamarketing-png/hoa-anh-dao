@@ -76,7 +76,7 @@ export function ProgramsShowcase({
           </button>
 
           <div
-            className={`grid w-full max-w-4xl gap-8 px-12 ${
+            className={`grid w-full max-w-6xl gap-10 px-14 ${
               current.length === 2 ? "grid-cols-2 justify-items-center" : "grid-cols-1 sm:grid-cols-3"
             }`}
           >
@@ -103,7 +103,7 @@ export function ProgramsShowcase({
       )}
 
       {!carousel && (
-        <div className="-mx-4 mt-6 flex gap-8 overflow-x-auto px-4 pb-2 scrollbar-hide snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
+        <div className="-mx-4 mt-8 flex gap-10 overflow-x-auto px-4 pb-4 scrollbar-hide snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-0">
           {programs.map((program, index) => (
             <FadeUp
               key={program.id}
