@@ -1,10 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CalendarDays, MapPin, Phone } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useLanguage } from "@/contexts/language-context";
-import { useVisitPopup } from "@/contexts/visit-popup-context";
 import { cn } from "@/lib/utils";
 
 function ZaloIcon({ className }: { className?: string }) {
@@ -72,7 +72,7 @@ function BarItem({ href, onClick, label, icon, className }: BarItemProps) {
 export function BottomActionBar() {
   const pathname = usePathname();
   const { t } = useLanguage();
-  const visitPopup = useVisitPopup();
+  const bookVisitHref = pathname === "/" ? "#dang-ky" : "/#dang-ky";
 
   if (pathname?.startsWith("/admin")) return null;
 
@@ -96,9 +96,8 @@ export function BottomActionBar() {
           icon={<ZaloIcon className="h-5 w-5 text-[#0068FF]" />}
         />
 
-        <button
-          type="button"
-          onClick={() => visitPopup?.openPopup()}
+        <Link
+          href={bookVisitHref}
           className="-mt-5 flex min-w-[4.5rem] flex-col items-center gap-0.5"
           aria-label={t.common.bookVisit}
         >
@@ -108,7 +107,7 @@ export function BottomActionBar() {
           <span className="text-[10px] font-semibold leading-tight text-primary-green">
             {t.common.bookVisit}
           </span>
-        </button>
+        </Link>
 
         <BarItem
           href={SITE_CONFIG.social.messenger}

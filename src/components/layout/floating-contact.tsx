@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { CalendarDays, MapPin } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useLanguage } from "@/contexts/language-context";
-import { useVisitPopup } from "@/contexts/visit-popup-context";
 import { cn } from "@/lib/utils";
 
 function ZaloIcon({ className }: { className?: string }) {
@@ -72,7 +71,7 @@ function FloatingButton({ href, onClick, label, className, children }: FloatingB
 export function FloatingContact() {
   const pathname = usePathname();
   const { t } = useLanguage();
-  const visitPopup = useVisitPopup();
+  const bookVisitHref = pathname === "/" ? "#dang-ky" : "/#dang-ky";
 
   if (pathname?.startsWith("/admin")) return null;
 
@@ -103,7 +102,7 @@ export function FloatingContact() {
       </FloatingButton>
 
       <FloatingButton
-        onClick={() => visitPopup?.openPopup()}
+        href={bookVisitHref}
         label={t.common.bookVisit}
         className="bg-primary-pink"
       >

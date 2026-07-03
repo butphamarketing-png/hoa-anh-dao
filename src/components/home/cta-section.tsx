@@ -15,7 +15,7 @@ export function CtaSection({ image }: CtaSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <section className="relative bg-warm py-5 lg:py-10">
+    <section id="dang-ky" className="relative bg-warm py-5 lg:py-10 scroll-mt-24">
       <DotPattern color="#D61F8C" opacity={0.04} />
 
       <Container className="max-w-4xl">
