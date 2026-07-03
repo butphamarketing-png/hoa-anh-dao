@@ -18,7 +18,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
   const items = testimonials.slice(0, 3);
 
   return (
-    <Section variant="muted">
+    <Section variant="muted" className="!pt-4 lg:!pt-5">
       <Container>
         <FadeUp>
           <SectionHeading

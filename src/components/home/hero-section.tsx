@@ -16,7 +16,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden">
       <Image
         src={settings.hero_image}
         alt="Trường Mầm Non Hoa Anh Đào"

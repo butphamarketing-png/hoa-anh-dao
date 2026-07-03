@@ -17,7 +17,7 @@ export function TeachersSection({ teachers }: TeachersSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section variant="muted">
+    <Section variant="muted" className="!pb-4 lg:!pb-5">
       <Container>
         <FadeUp>
           <SectionHeading title={t.home.teachers.title} subtitle={t.home.teachers.subtitle} />

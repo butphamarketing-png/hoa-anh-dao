@@ -39,7 +39,7 @@ async function queryTable<T>(table: string, orderBy = "order_index"): Promise<T[
     .select("*")
     .order(orderBy, { ascending: true });
 
-  if (error) return null;
+  if (error || !data?.length) return null;
   return data as T[];
 }
 

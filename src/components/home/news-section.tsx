@@ -20,7 +20,7 @@ export function NewsSection({ posts }: NewsSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <Section variant="warm" wave className="!py-8 lg:!py-10">
+    <Section variant="warm" className="!pt-5 !pb-4 lg:!pt-6 lg:!pb-5">
       <Container>
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
@@ -28,7 +28,8 @@ export function NewsSection({ posts }: NewsSectionProps) {
           </div>
         </FadeUp>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        {posts.length > 0 && (
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {posts.slice(0, 3).map((post, index) => (
             <FadeUp key={post.id} delay={index * 0.1}>
               <Link href={`/tin-tuc/${post.slug}`} className="group block h-full">
@@ -62,8 +63,9 @@ export function NewsSection({ posts }: NewsSectionProps) {
             </FadeUp>
           ))}
         </div>
+        )}
 
-        <FadeUp className="mt-8 text-center">
+        <FadeUp className="mt-6 text-center">
           <Button asChild variant="outline" className="rounded-full">
             <Link href="/tin-tuc">{t.common.viewAllNews}</Link>
           </Button>
