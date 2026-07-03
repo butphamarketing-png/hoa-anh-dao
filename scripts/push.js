@@ -13,14 +13,11 @@ function run(cmd) {
   execSync(cmd, { stdio: "inherit" });
 }
 
-run("git init");
-run("git add .");
-run('git commit -m "Initial commit: website Hoa Anh Dao preschool"');
-run("git branch -M main");
 try {
-  run("git remote remove origin");
+  run("git add -A");
+  run('git commit -m "chore: remove temp push script"');
 } catch {
-  // ignore
+  console.log("(commit skipped - nothing to commit or already committed)");
 }
-run("git remote add origin https://github.com/butphammarketing-png/hoa-anh-dao.git");
+
 run("git push -u origin main");
