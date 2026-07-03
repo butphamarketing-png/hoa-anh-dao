@@ -103,9 +103,9 @@ export function ProgramsShowcase({
       )}
 
       {!carousel && (
-        <div className="mx-auto mt-6 max-w-4xl space-y-6 sm:mt-8 sm:space-y-10">
-          <div className="grid grid-cols-3 gap-2 sm:gap-8 lg:gap-10">
-            {programs.slice(0, 3).map((program, index) => (
+        <div className="mx-auto mt-6 max-w-4xl sm:mt-8">
+          <div className="flex flex-col items-center gap-8 sm:hidden">
+            {programs.map((program, index) => (
               <FadeUp key={program.id} delay={index * 0.06}>
                 <ProgramFlowerCard
                   href={`/chuong-trinh-hoc/${program.slug}`}
@@ -116,10 +116,10 @@ export function ProgramsShowcase({
             ))}
           </div>
 
-          {programs.length > 3 && (
-            <div className="mx-auto grid max-w-md grid-cols-2 justify-items-center gap-2 sm:max-w-none sm:flex sm:flex-wrap sm:justify-center sm:gap-10">
-              {programs.slice(3).map((program, index) => (
-                <FadeUp key={program.id} delay={(index + 3) * 0.06}>
+          <div className="hidden space-y-10 sm:block">
+            <div className="grid grid-cols-3 justify-items-center gap-8 lg:gap-10">
+              {programs.slice(0, 3).map((program, index) => (
+                <FadeUp key={program.id} delay={index * 0.06}>
                   <ProgramFlowerCard
                     href={`/chuong-trinh-hoc/${program.slug}`}
                     image={program.image}
@@ -128,7 +128,21 @@ export function ProgramsShowcase({
                 </FadeUp>
               ))}
             </div>
-          )}
+
+            {programs.length > 3 && (
+              <div className="flex flex-wrap justify-center gap-10">
+                {programs.slice(3).map((program, index) => (
+                  <FadeUp key={program.id} delay={(index + 3) * 0.06}>
+                    <ProgramFlowerCard
+                      href={`/chuong-trinh-hoc/${program.slug}`}
+                      image={program.image}
+                      label={programLabel(program, t.home.programs.items)}
+                    />
+                  </FadeUp>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       )}
 

@@ -12,12 +12,12 @@ interface ProgramFlowerCardProps {
 
 const sizeClasses = {
   default: "w-full max-w-[180px] sm:max-w-[200px] lg:max-w-[220px]",
-  large: "w-full max-w-[100px] sm:max-w-[200px] lg:max-w-[260px] xl:max-w-[280px]",
+  large: "w-full max-w-[200px] sm:max-w-[200px] lg:max-w-[260px] xl:max-w-[280px]",
 };
 
 const labelClasses = {
   default: "w-full text-xs sm:text-base lg:text-xl",
-  large: "w-full text-[10px] leading-tight sm:text-lg lg:text-xl xl:text-[1.35rem]",
+  large: "w-full text-base sm:text-lg lg:text-xl xl:text-[1.35rem]",
 };
 
 const PETAL_COUNT = 10;
@@ -54,7 +54,7 @@ export function ProgramFlowerCard({
 }: ProgramFlowerCardProps) {
   return (
     <Link href={href} className={cn("group flex flex-col items-center text-center", className)}>
-      <div className={cn("relative mb-2 aspect-square sm:mb-5", sizeClasses[size])}>
+      <div className={cn("relative mb-5 aspect-square", sizeClasses[size])}>
         <SpinningFlowerFrame />
 
         <div className="absolute inset-[13%] rounded-full bg-primary-green p-[5px] shadow-inner">
