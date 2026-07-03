@@ -104,7 +104,7 @@ export function ProgramsShowcase({
 
       {!carousel && (
         <div className="mx-auto mt-6 max-w-4xl sm:mt-8">
-          <div className="flex flex-col items-center gap-8 sm:hidden">
+          <div className="flex flex-col items-center gap-10 sm:hidden">
             {programs.map((program, index) => (
               <FadeUp key={program.id} delay={index * 0.06}>
                 <ProgramFlowerCard

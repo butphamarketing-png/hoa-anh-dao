@@ -12,12 +12,12 @@ interface ProgramFlowerCardProps {
 
 const sizeClasses = {
   default: "w-full max-w-[180px] sm:max-w-[200px] lg:max-w-[220px]",
-  large: "w-full max-w-[200px] sm:max-w-[200px] lg:max-w-[260px] xl:max-w-[280px]",
+  large: "w-full max-w-[240px] sm:max-w-[220px] lg:max-w-[260px] xl:max-w-[280px]",
 };
 
 const labelClasses = {
   default: "w-full text-xs sm:text-base lg:text-xl",
-  large: "w-full text-base sm:text-lg lg:text-xl xl:text-[1.35rem]",
+  large: "w-full max-w-[280px] text-lg sm:max-w-none sm:text-lg lg:text-xl xl:text-[1.35rem]",
 };
 
 const PETAL_COUNT = 10;
