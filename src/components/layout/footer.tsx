@@ -6,12 +6,9 @@ import { Phone, Mail, MapPin, Facebook } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { NAV_ITEMS } from "@/lib/navigation";
 import { useLanguage } from "@/contexts/language-context";
-import { Logo } from "@/components/shared/logo";
-import { WavyDivider } from "@/components/shared/wavy-divider";
 import {
   CherryBlossomArt,
   DotPattern,
-  FallingPetals,
   LeafArt,
 } from "@/components/shared/decorations";
 
@@ -23,9 +20,7 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-primary-green text-white">
-      <WavyDivider fill="#00A651" flip className="-mt-px" />
       <DotPattern color="#FFFFFF" opacity={0.04} />
-      <FallingPetals />
       <CherryBlossomArt
         className="absolute left-4 top-12 hidden opacity-[0.12] md:block"
         size={110}
@@ -36,13 +31,16 @@ export function Footer() {
       />
       <LeafArt className="absolute bottom-32 left-8 hidden opacity-10 lg:block" size={75} />
 
-      <div className="relative z-[1] mx-auto max-w-7xl px-4 py-16 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="relative z-[1] mx-auto max-w-7xl px-4 py-10 lg:px-8 lg:py-12">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           <div>
-            <div className="mb-6">
-              <Logo size="lg" showText={false} />
-            </div>
-            <p className="font-body text-body-sm leading-relaxed text-white/70">
+            <h3 className="font-heading text-2xl font-extrabold leading-tight tracking-wide">
+              {t.site.tagline}
+            </h3>
+            <p className="mt-1 font-heading text-lg font-semibold text-white/90">
+              {t.site.preschool}
+            </p>
+            <p className="mt-4 font-body text-body-sm leading-relaxed text-white/70">
               {t.site.description}
             </p>
           </div>
@@ -113,7 +111,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8 text-center">
+        <div className="mt-8 border-t border-white/10 pt-6 text-center">
           <p className="font-body text-body-sm text-white/50">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. {t.common.copyright}
           </p>

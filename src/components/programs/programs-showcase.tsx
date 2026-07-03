@@ -103,20 +103,32 @@ export function ProgramsShowcase({
       )}
 
       {!carousel && (
-        <div className="-mx-4 mt-8 flex gap-10 overflow-x-auto px-4 pb-4 scrollbar-hide snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-0">
-          {programs.map((program, index) => (
-            <FadeUp
-              key={program.id}
-              delay={index * 0.06}
-              className="shrink-0 snap-center lg:shrink"
-            >
-              <ProgramFlowerCard
-                href={`/chuong-trinh-hoc/${program.slug}`}
-                image={program.image}
-                label={programLabel(program, t.home.programs.items)}
-              />
-            </FadeUp>
-          ))}
+        <div className="mx-auto mt-8 max-w-4xl space-y-10">
+          <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-3 sm:gap-10">
+            {programs.slice(0, 3).map((program, index) => (
+              <FadeUp key={program.id} delay={index * 0.06}>
+                <ProgramFlowerCard
+                  href={`/chuong-trinh-hoc/${program.slug}`}
+                  image={program.image}
+                  label={programLabel(program, t.home.programs.items)}
+                />
+              </FadeUp>
+            ))}
+          </div>
+
+          {programs.length > 3 && (
+            <div className="flex flex-wrap justify-center gap-8 sm:gap-10">
+              {programs.slice(3).map((program, index) => (
+                <FadeUp key={program.id} delay={(index + 3) * 0.06}>
+                  <ProgramFlowerCard
+                    href={`/chuong-trinh-hoc/${program.slug}`}
+                    image={program.image}
+                    label={programLabel(program, t.home.programs.items)}
+                  />
+                </FadeUp>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

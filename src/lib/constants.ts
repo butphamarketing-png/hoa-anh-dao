@@ -16,7 +16,11 @@ export const SITE_CONFIG = {
   social: {
     facebook: "https://facebook.com/hoaanhdaopreschool",
     youtube: "https://youtube.com/@hoaanhdaopreschool",
+    zalo: "https://zalo.me/0937933702",
+    messenger: "https://m.me/hoaanhdaopreschool",
   },
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=15+Tr%E1%BA%A7n+Th%E1%BB%8B+Ng%C3%B4i,+Qu%E1%BA%ADn+8,+TP+H%E1%BB%93+Ch%C3%AD+Minh",
   coordinates: {
     lat: 10.7402,
     lng: 106.6658,

@@ -23,6 +23,8 @@ export type Translations = {
     hotline: string;
     discover: string;
     close: string;
+    bookVisit: string;
+    maps: string;
     submit: string;
     submitting: string;
     selectLanguage: string;
@@ -156,6 +158,8 @@ export const vi: Translations = {
     hotline: "HOTLINE",
     discover: "Khám phá",
     close: "Đóng",
+    bookVisit: "Đặt lịch",
+    maps: "Bản đồ",
     submit: "Gửi đăng ký",
     submitting: "Đang gửi...",
     selectLanguage: "Chọn ngôn ngữ",
@@ -348,6 +352,8 @@ export const en: Translations = {
     hotline: "HOTLINE",
     discover: "Discover",
     close: "Close",
+    bookVisit: "Book a Visit",
+    maps: "Maps",
     submit: "Submit",
     submitting: "Submitting...",
     selectLanguage: "Select language",

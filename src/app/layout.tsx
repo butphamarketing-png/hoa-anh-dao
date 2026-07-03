@@ -48,10 +48,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <LanguageProvider initialLang={initialLang}>
-          <Header />
-          <MainWrapper>{children}</MainWrapper>
-          <Footer />
-          <VisitPopupWrapper />
+          <VisitPopupWrapper>
+            <Header />
+            <MainWrapper>{children}</MainWrapper>
+            <Footer />
+          </VisitPopupWrapper>
         </LanguageProvider>
       </body>
     </html>
