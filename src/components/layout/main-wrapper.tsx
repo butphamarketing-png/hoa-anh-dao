@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export function MainWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -12,7 +13,12 @@ export function MainWrapper({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <main className={isHome ? "min-h-screen" : "min-h-screen pt-[72px] lg:pt-[108px]"}>
+    <main
+      className={cn(
+        isHome ? "min-h-screen" : "min-h-screen pt-[72px] lg:pt-[108px]",
+        "pb-[4.75rem] lg:pb-0"
+      )}
+    >
       {children}
     </main>
   );

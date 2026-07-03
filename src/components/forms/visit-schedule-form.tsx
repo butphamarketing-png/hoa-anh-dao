@@ -25,9 +25,14 @@ import { SITE_CONFIG } from "@/lib/constants";
 interface VisitScheduleFormProps {
   onSuccess?: () => void;
   compact?: boolean;
+  minimal?: boolean;
 }
 
-export function VisitScheduleForm({ onSuccess, compact = false }: VisitScheduleFormProps) {
+export function VisitScheduleForm({
+  onSuccess,
+  compact = false,
+  minimal = false,
+}: VisitScheduleFormProps) {
   const { t, lang } = useLanguage();
   const ageGroups = lang === "en" ? AGE_GROUPS_EN : AGE_GROUPS;
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(
@@ -65,10 +70,14 @@ export function VisitScheduleForm({ onSuccess, compact = false }: VisitScheduleF
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={compact ? "space-y-2.5" : "space-y-4"}>
+    <form onSubmit={handleSubmit(onSubmit)} className={compact ? "space-y-2" : "space-y-4"}>
       <div
         className={`flex flex-wrap gap-2 rounded-[16px] bg-white/80 font-body text-foreground/70 sm:gap-4 ${
-          compact ? "px-2.5 py-2 text-[10px] sm:px-4 sm:py-3 sm:text-body-sm" : "gap-4 px-4 py-3 text-body-sm"
+          minimal
+            ? "hidden sm:flex sm:px-4 sm:py-3 sm:text-body-sm"
+            : compact
+              ? "px-2.5 py-2 text-[10px] sm:px-4 sm:py-3 sm:text-body-sm"
+              : "gap-4 px-4 py-3 text-body-sm"
         }`}
       >
         <span className="inline-flex items-center gap-1 sm:gap-1.5">
@@ -110,7 +119,7 @@ export function VisitScheduleForm({ onSuccess, compact = false }: VisitScheduleF
         )}
       </div>
 
-      <div>
+      <div className={minimal ? "hidden sm:block" : undefined}>
         <Label htmlFor="visit_email" className={compact ? "text-[11px] sm:text-sm" : undefined}>
           {t.popup.email}
         </Label>
@@ -144,7 +153,7 @@ export function VisitScheduleForm({ onSuccess, compact = false }: VisitScheduleF
         )}
       </div>
 
-      <div>
+      <div className={minimal ? "hidden sm:block" : undefined}>
         <Label htmlFor="visit_message" className={compact ? "text-[11px] sm:text-sm" : undefined}>
           {t.popup.note}
         </Label>

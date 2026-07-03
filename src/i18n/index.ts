@@ -25,6 +25,10 @@ export type Translations = {
     close: string;
     bookVisit: string;
     maps: string;
+    findDirections: string;
+    chatZalo: string;
+    messenger: string;
+    callNow: string;
     submit: string;
     submitting: string;
     selectLanguage: string;
@@ -160,6 +164,10 @@ export const vi: Translations = {
     close: "Đóng",
     bookVisit: "Đặt lịch",
     maps: "Bản đồ",
+    findDirections: "Tìm đường",
+    chatZalo: "Chat ZL",
+    messenger: "Messenger",
+    callNow: "Gọi ngay",
     submit: "Gửi đăng ký",
     submitting: "Đang gửi...",
     selectLanguage: "Chọn ngôn ngữ",
@@ -354,6 +362,10 @@ export const en: Translations = {
     close: "Close",
     bookVisit: "Book a Visit",
     maps: "Maps",
+    findDirections: "Directions",
+    chatZalo: "Zalo",
+    messenger: "Messenger",
+    callNow: "Call now",
     submit: "Submit",
     submitting: "Submitting...",
     selectLanguage: "Select language",

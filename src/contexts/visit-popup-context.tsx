@@ -74,49 +74,51 @@ export function VisitPopupProvider({ image, children }: VisitPopupProviderProps)
 
       {!isAdmin && mounted && (
         <Dialog open={open} onOpenChange={handleOpenChange}>
-          <DialogContent className="!max-w-[720px] !max-h-[calc(100dvh-1rem)] w-[calc(100vw-1rem)] overflow-hidden border-0 p-0 sm:!max-w-[820px] sm:rounded-[24px]">
-            <div className="grid h-[min(560px,calc(100dvh-1rem))] max-h-[calc(100dvh-1rem)] grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] overflow-hidden">
+          <DialogContent className="!max-w-[680px] !max-h-[calc(100dvh-5.5rem)] w-[calc(100vw-1rem)] overflow-hidden border-0 p-0 sm:!max-w-[780px] sm:rounded-[24px]">
+            <div className="grid h-[min(440px,calc(100dvh-5.5rem))] max-h-[calc(100dvh-5.5rem)] grid-cols-[minmax(0,0.3fr)_minmax(0,0.7fr)] overflow-hidden sm:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)]">
               <div className="relative h-full min-h-0 overflow-hidden">
                 <Image
                   src={image}
                   alt="Trường Mầm Non Hoa Anh Đào"
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 640px) 40vw, 320px"
+                  sizes="(max-width: 640px) 30vw, 300px"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 text-white sm:bottom-5 sm:left-5 sm:right-5">
-                  <p className="font-display text-xs font-semibold leading-snug sm:text-lg">
+                <div className="absolute bottom-2 left-2 right-2 text-white sm:bottom-4 sm:left-4 sm:right-4">
+                  <p className="font-display text-[10px] font-semibold leading-snug sm:text-base">
                     {t.popup.imageCaption}
-                  </p>
-                  <p className="mt-1 hidden font-body text-body-sm text-white/85 sm:block">
-                    {t.popup.imageSubtitle}
                   </p>
                 </div>
               </div>
 
-              <div className="relative flex h-full min-h-0 flex-col overflow-y-auto bg-warm p-3 sm:p-6">
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="absolute right-2 top-2 z-10 rounded-full bg-white/80 p-1.5 text-foreground/50 transition-colors hover:bg-white hover:text-foreground sm:right-4 sm:top-4 sm:p-2"
-                  aria-label={t.common.close}
-                >
-                  <X className="h-4 w-4 sm:h-5 sm:w-5" />
-                </button>
+              <div className="relative flex h-full min-h-0 flex-col overflow-y-auto bg-warm p-2.5 sm:p-5">
+                <div className="mb-2 flex shrink-0 items-start justify-between gap-2 sm:mb-3">
+                  <h2 className="flex-1 font-display text-xs font-semibold leading-snug text-primary-pink sm:text-lg lg:text-xl">
+                    {t.popup.title}
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={handleClose}
+                    className="shrink-0 rounded-full bg-white/80 p-1.5 text-foreground/50 transition-colors hover:bg-white hover:text-foreground sm:p-2"
+                    aria-label={t.common.close}
+                  >
+                    <X className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </button>
+                </div>
 
-                <h2 className="pr-8 font-display text-sm font-semibold leading-snug text-primary-pink sm:pr-10 sm:text-xl lg:text-2xl">
-                  {t.popup.title}
-                </h2>
-                <p className="mt-1.5 font-body text-[11px] leading-relaxed text-foreground/70 sm:mt-2 sm:text-body-sm">
+                <p className="hidden shrink-0 font-body text-body-sm leading-relaxed text-foreground/70 sm:block">
                   {t.popup.description}
                 </p>
-                <p className="mt-0.5 hidden font-body text-xs text-foreground/45 sm:block">{t.popup.privacy}</p>
+                <p className="mt-0.5 hidden shrink-0 font-body text-xs text-foreground/45 sm:block">
+                  {t.popup.privacy}
+                </p>
 
-                <div className="mt-3 sm:mt-5">
+                <div className="mt-2 min-h-0 sm:mt-4">
                   <VisitScheduleForm
                     compact
+                    minimal
                     onSuccess={() => {
                       setTimeout(handleClose, 2500);
                     }}

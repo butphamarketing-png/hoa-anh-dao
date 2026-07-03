@@ -19,7 +19,7 @@ export function Footer() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <footer className="relative overflow-hidden bg-primary-green text-white">
+    <footer className="relative overflow-hidden bg-primary-green pb-[4.75rem] text-white lg:pb-0">
       <DotPattern color="#FFFFFF" opacity={0.04} />
       <CherryBlossomArt
         className="absolute left-4 top-12 hidden opacity-[0.12] md:block"
