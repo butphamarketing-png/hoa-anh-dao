@@ -5,7 +5,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MainWrapper } from "@/components/layout/main-wrapper";
 import { VisitPopupWrapper } from "@/components/shared/visit-popup-wrapper";
-import { LanguageProvider, getLangFromCookie } from "@/contexts/language-context";
+import { LanguageProvider } from "@/contexts/language-context";
+import { getLangFromCookieValue } from "@/lib/lang-cookie";
 import { LANG_COOKIE } from "@/i18n";
 import { generateOrganizationSchema, generatePageMetadata } from "@/lib/seo";
 import "./globals.css";
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const organizationSchema = generateOrganizationSchema();
   const cookieStore = await cookies();
-  const initialLang = getLangFromCookie(cookieStore.get(LANG_COOKIE)?.value);
+  const initialLang = getLangFromCookieValue(cookieStore.get(LANG_COOKIE)?.value);
 
   return (
     <html lang={initialLang === "en" ? "en" : "vi"} className={`${nunito.variable} ${beVietnam.variable}`}>

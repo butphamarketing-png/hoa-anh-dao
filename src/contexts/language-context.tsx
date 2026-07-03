@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { translations, type Lang, type Translations } from "@/i18n";
 import {
   clearLegacyTranslateCookies,
-  getLangFromCookieValue,
   readLangCookieClient,
   writeLangCookie,
 } from "@/lib/lang-cookie";
@@ -66,8 +65,4 @@ export function useLanguage() {
     throw new Error("useLanguage must be used within LanguageProvider");
   }
   return ctx;
-}
-
-export function getLangFromCookie(cookieValue?: string): Lang {
-  return getLangFromCookieValue(cookieValue);
 }
