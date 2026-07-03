@@ -1,16 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import {
-  HeartHandshake,
-  GraduationCap,
-  Shield,
-  Camera,
-  Apple,
-  Palette,
-  ArrowRight,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { FadeUp } from "@/components/shared/motion-wrapper";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Container } from "@/components/shared/container";
@@ -19,15 +11,6 @@ import { PlayfulBlob } from "@/components/shared/wavy-divider";
 import { useLanguage } from "@/contexts/language-context";
 import type { Feature } from "@/types";
 
-const iconMap: Record<string, LucideIcon> = {
-  HeartHandshake,
-  GraduationCap,
-  Shield,
-  Camera,
-  Apple,
-  Palette,
-};
-
 const featureLinks = [
   "/giao-vien",
   "/chuong-trinh-hoc",
@@ -35,12 +18,12 @@ const featureLinks = [
   "/co-so-vat-chat",
 ];
 
-const featureGradients = [
-  "from-primary-green/90 to-primary-green",
-  "from-primary-pink/90 to-primary-pink",
-  "from-accent-blue/90 to-accent-blue",
-  "from-primary-green/80 to-accent-blue/90",
-];
+const fallbackImages: Record<string, string> = {
+  "1": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+  "2": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
+  "3": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
+  "4": "https://images.unsplash.com/photo-1560421683-6857ea356b30?w=800&q=80",
+};
 
 interface FeaturesSectionProps {
   features: Feature[];
@@ -62,19 +45,24 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:gap-6">
           {items.map((feature, index) => {
-            const Icon = iconMap[feature.icon] || HeartHandshake;
             const copy = t.home.features.items[feature.id] ?? {
               title: feature.title,
               description: feature.description,
             };
+            const imageSrc = feature.image ?? fallbackImages[feature.id] ?? fallbackImages["1"];
 
             return (
               <FadeUp key={feature.id} delay={index * 0.1}>
                 <article className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
-                  <div
-                    className={`relative flex h-44 items-center justify-center bg-gradient-to-br ${featureGradients[index % featureGradients.length]}`}
-                  >
-                    <Icon className="h-16 w-16 text-white/90 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={imageSrc}
+                      alt={copy.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-heading text-xl font-extrabold text-foreground">

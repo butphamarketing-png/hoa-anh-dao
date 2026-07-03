@@ -58,6 +58,7 @@ export const defaultFeatures: Feature[] = [
     title: "Đội ngũ giáo viên tận tâm",
     description: "Giáo viên được đào tạo bài bản, giàu kinh nghiệm và yêu trẻ.",
     icon: "HeartHandshake",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
     order_index: 1,
   },
   {
@@ -65,6 +66,7 @@ export const defaultFeatures: Feature[] = [
     title: "Chương trình hiện đại",
     description: "Giáo trình chuẩn quốc tế kết hợp phương pháp Montessori.",
     icon: "GraduationCap",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
     order_index: 2,
   },
   {
@@ -72,6 +74,7 @@ export const defaultFeatures: Feature[] = [
     title: "Lớp học an toàn",
     description: "Không gian được thiết kế an toàn, thân thiện với trẻ nhỏ.",
     icon: "Shield",
+    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
     order_index: 3,
   },
   {
@@ -79,6 +82,7 @@ export const defaultFeatures: Feature[] = [
     title: "Camera trực tuyến",
     description: "Hệ thống camera giúp phụ huynh theo dõi con mọi lúc.",
     icon: "Camera",
+    image: "https://images.unsplash.com/photo-1560421683-6857ea356b30?w=800&q=80",
     order_index: 4,
   },
   {
@@ -86,6 +90,7 @@ export const defaultFeatures: Feature[] = [
     title: "Dinh dưỡng khoa học",
     description: "Thực đơn cân bằng dinh dưỡng, đảm bảo vệ sinh an toàn.",
     icon: "Apple",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80",
     order_index: 5,
   },
   {
@@ -93,6 +98,7 @@ export const defaultFeatures: Feature[] = [
     title: "Hoạt động ngoại khóa",
     description: "Đa dạng hoạt động vui chơi, khám phá và phát triển kỹ năng.",
     icon: "Palette",
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
     order_index: 6,
   },
 ];
