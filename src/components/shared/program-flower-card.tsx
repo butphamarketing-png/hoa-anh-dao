@@ -14,12 +14,12 @@ const sizeClasses = {
   default:
     "h-[180px] w-[180px] shrink-0 sm:h-[200px] sm:w-[200px] lg:h-[220px] lg:w-[220px]",
   large:
-    "h-[240px] w-[240px] shrink-0 sm:h-[240px] sm:w-[240px] lg:h-[260px] lg:w-[260px]",
+    "h-[240px] w-[240px] shrink-0 sm:h-[260px] sm:w-[260px] lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px]",
 };
 
 const labelClasses = {
   default: "max-w-[200px] text-xs sm:max-w-[220px] sm:text-base lg:text-xl",
-  large: "max-w-[260px] text-lg sm:text-lg lg:max-w-[280px] lg:text-xl",
+  large: "max-w-[280px] text-lg sm:max-w-[300px] sm:text-xl lg:max-w-[340px] lg:text-xl xl:text-[1.35rem]",
 };
 
 const PETAL_COUNT = 10;
@@ -69,7 +69,7 @@ export function ProgramFlowerCard({
               alt={label}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes={size === "large" ? "280px" : "220px"}
+              sizes={size === "large" ? "320px" : "220px"}
             />
           </div>
         </div>
