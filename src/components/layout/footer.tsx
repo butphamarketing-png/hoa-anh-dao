@@ -16,8 +16,8 @@ export function Footer() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <footer className="relative bg-foreground text-white">
-      <WavyDivider fill="#2D2D2D" flip className="-mt-px" />
+    <footer className="relative bg-primary-green text-white">
+      <WavyDivider fill="#00A651" flip className="-mt-px" />
 
       <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -34,17 +34,17 @@ export function Footer() {
             <h3 className="mb-4 font-heading text-lg font-bold">{t.footer.contact}</h3>
             <ul className="space-y-3 font-body text-body-sm text-white/70">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary-green" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/90" />
                 {SITE_CONFIG.address.full}
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-4 w-4 shrink-0 text-primary-green" />
+                <Phone className="h-4 w-4 shrink-0 text-white/90" />
                 <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`} className="hover:text-white">
                   {SITE_CONFIG.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-4 w-4 shrink-0 text-primary-green" />
+                <Mail className="h-4 w-4 shrink-0 text-white/90" />
                 <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-white">
                   {SITE_CONFIG.email}
                 </a>
@@ -59,7 +59,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="font-body text-body-sm text-white/70 transition-colors hover:text-primary-green"
+                    className="font-body text-body-sm text-white/80 transition-colors hover:text-white"
                   >
                     {t.nav[item.labelKey]}
                   </Link>
@@ -87,7 +87,7 @@ export function Footer() {
                 href={SITE_CONFIG.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-primary-green"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition-colors hover:bg-white/25"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
