@@ -40,7 +40,7 @@ export function TopBar() {
             <Phone className="h-3.5 w-3.5" />
             {t.common.hotline}: {SITE_CONFIG.phone}
           </a>
-          <LanguageSwitcher className="border-white/20 bg-white/10 [&_button]:text-white/70 [&_button[aria-pressed=true]]:bg-white [&_button[aria-pressed=true]]:text-primary-green" />
+          <LanguageSwitcher className="border-white/20 bg-white/10 [&_button:not([aria-pressed=true])]:text-white/90 [&_button:not([aria-pressed=true])]:hover:bg-white/20 [&_button[aria-pressed=true]]:bg-white [&_button[aria-pressed=true]]:text-primary-green [&_button[aria-pressed=true]]:shadow-sm" />
         </div>
       </div>
     </div>

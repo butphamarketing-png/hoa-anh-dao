@@ -2,9 +2,15 @@
 
 import { useLanguage } from "@/contexts/language-context";
 import { cn } from "@/lib/utils";
+import type { Lang } from "@/i18n";
 
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { lang, setLang, t } = useLanguage();
+
+  const handleSwitch = (next: Lang) => {
+    if (next === lang) return;
+    setLang(next);
+  };
 
   return (
     <div
@@ -17,28 +23,28 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     >
       <button
         type="button"
-        onClick={() => setLang("vi")}
+        onClick={() => handleSwitch("vi")}
         className={cn(
-          "rounded-full px-3 py-1.5 transition-all duration-200",
+          "pointer-events-auto rounded-full px-3 py-1.5 transition-all duration-200",
           lang === "vi"
             ? "bg-primary-green text-white shadow-sm"
-            : "text-foreground/50 hover:text-foreground"
+            : "text-foreground/50 hover:bg-section hover:text-foreground"
         )}
         aria-pressed={lang === "vi"}
       >
         VN
       </button>
-      <span className="text-foreground/20" aria-hidden="true">
+      <span className="pointer-events-none text-foreground/20" aria-hidden="true">
         |
       </span>
       <button
         type="button"
-        onClick={() => setLang("en")}
+        onClick={() => handleSwitch("en")}
         className={cn(
-          "rounded-full px-3 py-1.5 transition-all duration-200",
+          "pointer-events-auto rounded-full px-3 py-1.5 transition-all duration-200",
           lang === "en"
             ? "bg-primary-green text-white shadow-sm"
-            : "text-foreground/50 hover:text-foreground"
+            : "text-foreground/50 hover:bg-section hover:text-foreground"
         )}
         aria-pressed={lang === "en"}
       >

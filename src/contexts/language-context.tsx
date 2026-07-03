@@ -1,12 +1,14 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { translations, type Lang, type Translations } from "@/i18n";
 import {
-  translations,
-  LANG_COOKIE,
-  type Lang,
-  type Translations,
-} from "@/i18n";
+  clearLegacyTranslateCookies,
+  getLangFromCookieValue,
+  readLangCookieClient,
+  writeLangCookie,
+} from "@/lib/lang-cookie";
 
 interface LanguageContextValue {
   lang: Lang;
@@ -23,13 +25,30 @@ export function LanguageProvider({
   children: React.ReactNode;
   initialLang: Lang;
 }) {
+  const router = useRouter();
   const [lang, setLangState] = useState<Lang>(initialLang);
 
-  const setLang = useCallback((next: Lang) => {
-    document.cookie = `${LANG_COOKIE}=${next};path=/;max-age=31536000;SameSite=Lax`;
-    document.documentElement.lang = next === "en" ? "en" : "vi";
-    setLangState(next);
+  useEffect(() => {
+    clearLegacyTranslateCookies();
+
+    const resolved = readLangCookieClient();
+    if (resolved !== lang) {
+      setLangState(resolved);
+      document.documentElement.lang = resolved === "en" ? "en" : "vi";
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const setLang = useCallback(
+    (next: Lang) => {
+      clearLegacyTranslateCookies();
+      writeLangCookie(next);
+      document.documentElement.lang = next === "en" ? "en" : "vi";
+      setLangState(next);
+      router.refresh();
+    },
+    [router]
+  );
 
   const value = useMemo(
     () => ({ lang, setLang, t: translations[lang] }),
@@ -50,5 +69,5 @@ export function useLanguage() {
 }
 
 export function getLangFromCookie(cookieValue?: string): Lang {
-  return cookieValue === "en" ? "en" : "vi";
+  return getLangFromCookieValue(cookieValue);
 }
